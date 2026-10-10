@@ -180,17 +180,17 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           >
             {wished ? "♥" : "♡"}
           </button>
-          {/* Sizes overlay on image (hover) — like Furor */}
+          {/* Sizes overlay on image (hover) — Furor style: small white square boxes */}
           {(() => {
             let sizes: string[] = [];
             try { sizes = JSON.parse(product.sizes || "[]"); } catch { /* ignore */ }
             if (!hover || !sizes.length) return null;
             return (
-              <div className="absolute bottom-2 left-2 right-2 flex flex-wrap gap-1 justify-center">
+              <div className="absolute bottom-0 left-0 flex gap-1 p-1.5 animate-[fadeIn_0.25s_ease-in]">
                 {sizes.map((s) => (
                   <span
                     key={s}
-                    className="rounded bg-white/95 px-2 py-0.5 text-[11px] font-medium text-stone-950 shadow-sm"
+                    className="grid place-items-center h-6 w-6 bg-white border border-stone-200 text-[10px] font-medium text-stone-800"
                   >
                     {s}
                   </span>
