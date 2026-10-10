@@ -124,7 +124,7 @@ export default function Navbar({
               ) : (
                 <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
               )}
-              <span className="truncate text-xl font-bold uppercase tracking-[0.22em]">{storeName}</span>
+              <span className="truncate text-2xl font-black uppercase tracking-tight" style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Arial, sans-serif", letterSpacing: "0.02em" }}>{storeName}</span>
             </Link>
           </div>
 
