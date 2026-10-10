@@ -8,9 +8,9 @@ import { getPublicSettingsSafe } from "@/lib/settings";
 export const dynamic = "force-dynamic";
 
 const CATEGORIES = [
-  { key: "women", label: "Women", blurb: "Embroidered suits & pret wear", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666852/qomash-products/qomash-women-category-tile.webp" },
-  { key: "men", label: "Men", blurb: "Premium menswear collection", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666854/qomash-products/qomash-men-category-tile.webp" },
-  { key: "winter", label: "Winter Collection", blurb: "Pashmina & wool shawls", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666887/qomash-products/qomash-couple-category-tile.webp" },
+  { key: "women", label: "Women", blurb: "Embroidered suits & pret wear", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791667921/qomash-products/qomash-women-tile-v4.webp" },
+  { key: "men", label: "Men", blurb: "Premium menswear collection", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791667922/qomash-products/qomash-men-tile-v4.webp" },
+  { key: "winter", label: "Winter Collection", blurb: "Pashmina & wool shawls", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791667924/qomash-products/qomash-couple-tile-v4.webp" },
 ];
 
 async function getProducts(where: string, limit: number): Promise<Product[]> {
