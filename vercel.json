@@ -1,1 +1,1 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"next build","env":{"TURSO_AUTH_TOKEN":"@turso-auth-token","TURSO_DATABASE_URL":"@turso-database-url"},"framework":"nextjs","regions":["sin1"]}
+{"":"https://openapi.vercel.sh/vercel.json","buildCommand":"next build","framework":"nextjs","regions":["sin1"]}
