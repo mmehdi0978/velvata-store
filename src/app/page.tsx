@@ -43,8 +43,21 @@ export default async function HomePage() {
       {/* HERO CAROUSEL */}
       <HeroCarousel slides={slides} />
 
+      {/* TRENDING NOW — right after hero (Furor pattern) */}
+      {bestsellers.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 mt-10">
+          <div className="flex items-end justify-between">
+            <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">Trending Now</h2>
+            <Link href="/shop?sort=bestselling" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
+          </div>
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {bestsellers.map((p) => <ProductCard key={p.id} product={p} />)}
+          </div>
+        </section>
+      )}
+
       {/* TRUST BADGES — minimal */}
-      <section className="border-b border-stone-200">
+      <section className="border-y border-stone-200 mt-10">
         <div className="max-w-6xl mx-auto px-4 py-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-[11px] uppercase tracking-[0.18em] text-stone-500">
           <div>Free delivery over Rs 3,000</div>
           <div>Cash on Delivery</div>
@@ -54,9 +67,9 @@ export default async function HomePage() {
       </section>
 
       {/* CATEGORIES — clean image tiles */}
-      <section className="max-w-6xl mx-auto px-4 mt-12">
+      <section className="max-w-7xl mx-auto px-4 mt-12">
         <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight text-stone-950">Shop by Category</h2>
+          <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">Shop by Category</h2>
           <Link href="/shop" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
         </div>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -79,9 +92,9 @@ export default async function HomePage() {
       </section>
 
       {/* NEW ARRIVALS */}
-      <section className="max-w-6xl mx-auto px-4 mt-16">
+      <section className="max-w-7xl mx-auto px-4 mt-16">
         <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight text-stone-950">New Arrivals</h2>
+          <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">New Arrivals</h2>
           <Link href="/shop?sort=newest" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
         </div>
         <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -92,27 +105,12 @@ export default async function HomePage() {
       {/* MID-SITE PROMO BANNER */}
       <PromoBanner />
 
-      {/* TRENDING NOW */}
-      {bestsellers.length > 0 && (
-        <section className="mt-16 bg-stone-50 border-y border-stone-200">
-          <div className="max-w-6xl mx-auto px-4 py-12">
-            <div className="flex items-end justify-between">
-              <h2 className="text-xl font-semibold tracking-tight text-stone-950">Trending Now</h2>
-              <Link href="/shop?sort=bestselling" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
-            </div>
-            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {bestsellers.map((p) => <ProductCard key={p.id} product={p} />)}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* SALE */}
       {sale.length > 0 && (
-        <section className="max-w-6xl mx-auto px-4 mt-16">
+        <section className="max-w-7xl mx-auto px-4 mt-16">
           <div className="flex items-end justify-between">
-            <h2 className="text-xl font-semibold tracking-tight text-stone-950">
-              Sale <span className="text-babli text-sm font-medium">— up to 30% off</span>
+            <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">
+              Sale <span className="text-orange-500 text-sm font-medium">— up to 30% off</span>
             </h2>
             <Link href="/shop?sale=1" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
           </div>
@@ -122,8 +120,30 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* SEO TEXT BLOCK (Furor pattern) */}
+      <section className="max-w-4xl mx-auto px-4 mt-16 mb-4 text-stone-500 text-sm leading-relaxed">
+        <h2 className="text-lg font-semibold text-stone-900 mb-3">Women's Fashion Online in Pakistan</h2>
+        <p>
+          Qomash Wears brings premium women's fashion to your doorstep — from embroidered unstitched fabric
+          to ready-to-wear suits and cozy winter shawls. Shop the latest trends in Pakistani women's clothing
+          with cash on delivery available nationwide.
+        </p>
+        <h3 className="text-base font-semibold text-stone-900 mt-4 mb-2">Unstitched Fabric Collection</h3>
+        <p>
+          Explore our unstitched range featuring embroidered lawn, chiffon, khaddar, and karandi.
+          Each piece is carefully selected for quality fabric and intricate designs, perfect for
+          custom stitching to your exact measurements.
+        </p>
+        <h3 className="text-base font-semibold text-stone-900 mt-4 mb-2">Ready to Wear & Shawls</h3>
+        <p>
+          Need it now? Our pret collection offers beautifully stitched kurtis and 3-piece suits,
+          ready to wear out of the box. Complete your winter wardrobe with our luxurious
+          pashmina and wool shawls.
+        </p>
+      </section>
+
       {/* BRAND STRIP — minimal */}
-      <section className="mt-16 bg-stone-950 text-white">
+      <section className="mt-12 bg-black text-white">
         <div className="max-w-6xl mx-auto px-4 py-14 text-center">
           <p className="text-2xl sm:text-3xl font-bold tracking-tight">Elegance, delivered to your door</p>
           <p className="mt-3 text-white/60 text-sm max-w-xl mx-auto font-light">
