@@ -4,14 +4,54 @@ import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 import { useWishlist } from "./WishlistProvider";
 
-const NAV: { href: string; label: string; hot?: boolean }[] = [
+const NAV: { href: string; label: string; hot?: boolean; dropdown?: { href: string; label: string }[] }[] = [
   { href: "/shop?sale=1", label: "Final Call - Season End Sale", hot: true },
   { href: "/shop?sort=newest", label: "New Arrivals" },
-  { href: "/shop?category=men", label: "Men" },
-  { href: "/shop?category=winter", label: "Winter Collection" },
-  { href: "/shop?category=women", label: "Women" },
-  { href: "/shop?category=footwear", label: "Footwear" },
-  { href: "/shop?category=accessories", label: "Accessories" },
+  {
+    href: "/shop?category=men", label: "Men",
+    dropdown: [
+      { href: "/shop?category=men", label: "All Men" },
+      { href: "/shop?category=men&search=kurta", label: "Kurtas" },
+      { href: "/shop?category=men&search=shalwar", label: "Shalwar Kameez" },
+      { href: "/shop?category=men&search=shirt", label: "Shirts" },
+      { href: "/shop?category=men&search=jeans", label: "Jeans" },
+      { href: "/shop?category=men&search=polo", label: "Polos" },
+    ],
+  },
+  {
+    href: "/shop?category=winter", label: "Winter Collection",
+    dropdown: [
+      { href: "/shop?category=winter", label: "All Winter" },
+      { href: "/shop?category=winter&search=shawl", label: "Shawls" },
+      { href: "/shop?category=winter&search=pashmina", label: "Pashmina" },
+      { href: "/shop?category=winter&search=wool", label: "Wool Wraps" },
+    ],
+  },
+  {
+    href: "/shop?category=women", label: "Women",
+    dropdown: [
+      { href: "/shop?category=women", label: "All Women" },
+      { href: "/shop?category=women&search=lawn", label: "Lawn Suits" },
+      { href: "/shop?category=women&search=chiffon", label: "Chiffon" },
+      { href: "/shop?category=women&search=khaddar", label: "Khaddar" },
+      { href: "/shop?category=women&search=kurti", label: "Kurtis" },
+    ],
+  },
+  {
+    href: "/shop?category=footwear", label: "Footwear",
+    dropdown: [
+      { href: "/shop?category=footwear", label: "All Footwear" },
+    ],
+  },
+  {
+    href: "/shop?category=accessories", label: "Accessories",
+    dropdown: [
+      { href: "/shop?category=accessories", label: "All Accessories" },
+      { href: "/shop?category=accessories&search=bag", label: "Bags" },
+      { href: "/shop?category=accessories&search=earring", label: "Jewelry" },
+      { href: "/shop?category=accessories&search=scarf", label: "Scarves" },
+    ],
+  },
 ];
 
 export default function Navbar({
@@ -88,16 +128,35 @@ export default function Navbar({
             </Link>
           </div>
 
-          {/* Nav links — Furor style: white uppercase */}
+          {/* Nav links — Furor style: white uppercase with dropdowns */}
           <nav className="hidden sm:flex items-center gap-7 text-[13px] font-medium uppercase tracking-wide text-white">
             {NAV.map((n) => (
-              <Link
-                key={n.label}
-                href={n.href}
-                className={`hover:text-stone-300 transition-colors ${n.hot ? "text-orange-500 font-semibold" : ""}`}
-              >
-                {n.label}
-              </Link>
+              <div key={n.label} className="relative group/nav">
+                <Link
+                  href={n.href}
+                  className={`flex items-center gap-1 hover:text-stone-300 transition-colors py-5 ${n.hot ? "text-orange-500 font-semibold" : ""}`}
+                >
+                  {n.label}
+                  {n.dropdown && (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="m6 9 6 6 6-6" strokeLinecap="round" />
+                    </svg>
+                  )}
+                </Link>
+                {n.dropdown && (
+                  <div className="absolute top-full left-0 min-w-48 bg-white shadow-xl rounded-b-lg py-2 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 z-50">
+                    {n.dropdown.map((d) => (
+                      <Link
+                        key={d.label}
+                        href={d.href}
+                        className="block px-5 py-2.5 text-[13px] normal-case tracking-normal text-stone-700 hover:bg-stone-100 hover:text-stone-950 font-normal"
+                      >
+                        {d.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
