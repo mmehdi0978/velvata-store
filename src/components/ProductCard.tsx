@@ -112,12 +112,13 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   const price = product.salePrice ?? product.price;
   const wished = has(product.id);
 
-  // Cycle through all product images while hovering (angle slideshow)
-  useEffect(() => {
-    if (!hover || imgs.length < 2) return;
-    const t = setInterval(() => setImgIdx((i) => (i + 1) % imgs.length), 800);
-    return () => clearInterval(t);
-  }, [hover, imgs.length]);
+  // Change image based on mouse X position (scrub through angles)
+  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (imgs.length < 2) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    setImgIdx(Math.min(imgs.length - 1, Math.floor(x * imgs.length)));
+  }
 
   function onEnter() {
     setHover(true);
@@ -153,6 +154,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       className="group relative bg-white"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
+      onMouseMove={onMove}
     >
       <Link href={`/product/${product.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-stone-100">
