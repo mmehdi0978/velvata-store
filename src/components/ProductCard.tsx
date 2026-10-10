@@ -103,11 +103,9 @@ export function categoryLabel(cat: string): string {
 
 export default function ProductCard({ product }: { product: CardProduct }) {
   const imgs = productImages(product);
-  const { addItem, setDrawerOpen } = useCart();
   const { has, toggle } = useWishlist();
   const [hover, setHover] = useState(false);
   const [imgIdx, setImgIdx] = useState(0);
-  const [added, setAdded] = useState(false);
   const pct = discountPct(product);
   const price = product.salePrice ?? product.price;
   const wished = has(product.id);
@@ -127,20 +125,6 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   function onLeave() {
     setHover(false);
     setImgIdx(0);
-  }
-
-  function quickAdd(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-    let size = "One Size";
-    try {
-      const sizes: string[] = JSON.parse(product.sizes || "[]");
-      size = sizes[0] || "One Size";
-    } catch { /* ignore */ }
-    addItem({ productId: product.id, slug: product.slug, name: product.name, size, price, image: imgs[0] });
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
-    setDrawerOpen(true);
   }
 
   function wish(e: React.MouseEvent) {
@@ -222,13 +206,6 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           </div>
         </div>
       </Link>
-      <button
-        onClick={quickAdd}
-        disabled={product.stock === 0}
-        className="absolute bottom-28 left-3 right-3 rounded-full bg-white/95 backdrop-blur border border-stone-200 text-stone-950 text-sm font-medium py-2.5 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 hover:bg-stone-950 hover:text-white hover:border-stone-950"
-      >
-        {added ? "✓ Added" : "Quick Add"}
-      </button>
     </div>
   );
 }
