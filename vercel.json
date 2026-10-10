@@ -1,1 +1,8 @@
-{"":"https://openapi.vercel.sh/vercel.json","buildCommand":"next build","framework":"nextjs","regions":["sin1"]}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "next build",
+  "framework": "nextjs",
+  "regions": [
+    "sin1"
+  ]
+}
