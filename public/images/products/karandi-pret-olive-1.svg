@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Pret Karandi 2 PCS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fee7"/>
+      <stop offset="1" stop-color="#4d7c0f" stop-opacity="0.22"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.42">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <circle cx="300" cy="380" r="250" fill="url(#halo)"/>
+  <g>
+  <g fill="#bef264" stroke="#4d7c0f" stroke-width="4" stroke-linejoin="round">
+    <path d="M235,175 L160,230 L195,300 L230,285 L230,660 L370,660 L370,285 L405,300 L440,230 L365,175 C342,205 322,213 300,213 C278,213 258,205 235,175 Z"/>
+          <path d="M300,213 L300,340" stroke="#000" stroke-opacity="0.15" stroke-width="6"/>
+          <path d="M250,480 Q300,500 350,480" stroke="#000" stroke-opacity="0.12" stroke-width="5" fill="none"/>
+  </g>
+  </g>
+  <text x="300" y="742" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" fill="#4d7c0f" opacity="0.8">Babli · Pret Karandi 2 PCS</text>
+</svg>

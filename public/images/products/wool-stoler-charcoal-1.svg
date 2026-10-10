@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Wool Stoler">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f5f4"/>
+      <stop offset="1" stop-color="#44403c" stop-opacity="0.22"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.42">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <circle cx="300" cy="380" r="250" fill="url(#halo)"/>
+  <g>
+  <g fill="#a8a29e" stroke="#44403c" stroke-width="4" stroke-linejoin="round">
+    <path d="M170,240 Q300,200 430,240 L400,640 Q300,610 200,640 Z"/>
+          <path d="M190,300 Q300,265 410,300 M185,380 Q300,345 415,380 M180,460 Q300,425 420,460 M175,540 Q300,505 425,540" stroke="#000" stroke-opacity="0.14" stroke-width="6" fill="none"/>
+          <path d="M170,240 Q300,200 430,240" stroke="#000" stroke-opacity="0.2" stroke-width="6" fill="none"/>
+  </g>
+  </g>
+  <text x="300" y="742" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" fill="#44403c" opacity="0.8">Babli · Wool Stoler</text>
+</svg>
