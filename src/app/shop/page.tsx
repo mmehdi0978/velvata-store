@@ -64,6 +64,7 @@ export default function ShopPage() {
     setCat(params.get("category") || (params.get("sale") ? "sale" : ""));
     if (params.get("sort")) setSort(params.get("sort")!);
     setFabric(params.get("fabric") || "");
+    if (params.get("search")) setQ(params.get("search")!);
   }, [params]);
 
   useEffect(() => {
