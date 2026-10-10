@@ -39,10 +39,21 @@ export default function Navbar({
 
   return (
     <>
-      {/* Announcement bar — thin, minimal */}
-      <div className="bg-stone-950 text-white text-center text-[11px] uppercase tracking-[0.22em] px-4 py-2">
-        {announcement || "Free delivery on orders above Rs 3,000 · COD available across Pakistan"}
-        {phone && <span className="hidden sm:inline"> · {phone}</span>}
+      {/* Announcement bar — with info page links (Furor style) */}
+      <div className="bg-stone-950 text-white text-[11px] uppercase tracking-[0.18em] px-4 py-2">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="truncate">
+            {announcement || "Free delivery on orders above Rs 3,000 · COD available across Pakistan"}
+            {phone && <span className="hidden sm:inline"> · {phone}</span>}
+          </div>
+          <div className="hidden md:flex items-center gap-4 shrink-0">
+            <Link href="/about" className="hover:text-stone-300">About Us</Link>
+            <Link href="/contact" className="hover:text-stone-300">Contact Us</Link>
+            <Link href="/faq" className="hover:text-stone-300">FAQs</Link>
+            <Link href="/shipping" className="hover:text-stone-300">Shipping</Link>
+            <Link href="/exchange-return" className="hover:text-stone-300">Returns</Link>
+          </div>
+        </div>
       </div>
 
       <header className="sticky top-0 z-40 bg-black">
