@@ -51,6 +51,9 @@ export default function Footer({ storeName, tagline, phone }: { storeName: strin
         <div>
           <div className="font-semibold text-stone-900 mb-2">Information</div>
           <ul className="space-y-1.5">
+            <li><a className="hover:text-stone-950" href="/about">About Us</a></li>
+            <li><a className="hover:text-stone-950" href="/contact">Contact Us</a></li>
+            <li><a className="hover:text-stone-950" href="/faq">FAQs</a></li>
             <li><a className="hover:text-stone-950" href="/account">My Account</a></li>
             <li><a className="hover:text-stone-950" href="/blog">Journal</a></li>
             <li><a className="hover:text-stone-950" href="/shipping">Shipping Policy</a></li>
