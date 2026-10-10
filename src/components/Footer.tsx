@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function Footer({ storeName, tagline }: { storeName: string; tagline: string }) {
+export default function Footer({ storeName, tagline, phone }: { storeName: string; tagline: string; phone?: string }) {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
@@ -83,6 +83,11 @@ export default function Footer({ storeName, tagline }: { storeName: string; tagl
         </div>
       </div>
       <div className="border-t border-stone-200 py-4 text-center text-xs text-stone-400">
+        {phone && (
+          <p className="mb-1.5 text-stone-500">
+            📞 {phone} · MON-SAT, 9:00 TO 6:00
+          </p>
+        )}
         © {new Date().getFullYear()} {storeName}. All rights reserved.
       </div>
     </footer>

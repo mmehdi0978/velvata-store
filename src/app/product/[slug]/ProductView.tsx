@@ -39,6 +39,8 @@ export default function ProductView({ product, sizes, images, related }: Props) 
   const [zoom, setZoom] = useState(false);
   const [chartOpen, setChartOpen] = useState(false);
   const [careOpen, setCareOpen] = useState(false);
+  const [shipOpen, setShipOpen] = useState(false);
+  const [exchangeOpen, setExchangeOpen] = useState(false);
   const price = product.salePrice ?? product.price;
   const pct = discountPct({ price: product.price, salePrice: product.salePrice } as CardProduct);
   const imgs = images.length ? images : ["/images/products/placeholder.svg"];
@@ -99,7 +101,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
             {product.salePrice && (
               <>
                 <span className="text-lg text-stone-400 line-through">{formatPkr(product.price)}</span>
-                <span className="text-xs font-bold bg-babli text-white px-2.5 py-1 rounded-full">-{pct}% OFF</span>
+                <span className="text-xs font-bold bg-babli text-white px-2.5 py-1 rounded-full">Save {pct}% OFF</span>
               </>
             )}
           </div>
@@ -133,6 +135,35 @@ export default function ProductView({ product, sizes, images, related }: Props) 
               <p><strong>Note:</strong> Slight color variation may occur due to photography lighting.</p>
             </div>
           )}
+
+          {/* delivery terms accordion — Furor style */}
+          <button onClick={() => setShipOpen(!shipOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-babli">
+            Delivery Terms &amp; Conditions
+            <span>{shipOpen ? "−" : "+"}</span>
+          </button>
+          {shipOpen && (
+            <div className="mt-2 rounded-xl bg-stone-50 p-4 text-sm text-stone-600 space-y-1.5">
+              <p>🚚 <strong>Dispatched</strong> within 24–48 hours; delivered in <strong>3–5 working days</strong> nationwide.</p>
+              <p>💵 <strong>Flat Rs 250</strong> shipping per order — <strong>FREE on orders of Rs 3,000+</strong>.</p>
+              <p>📦 Cash on Delivery available across Pakistan. Track anytime from the <Link href="/track" className="text-babli underline">Track Order</Link> page.</p>
+            </div>
+          )}
+
+          {/* exchange eligibility accordion — Furor style */}
+          <button onClick={() => setExchangeOpen(!exchangeOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-babli">
+            Exchange Eligibility
+            <span>{exchangeOpen ? "−" : "+"}</span>
+          </button>
+          {exchangeOpen && (
+            <div className="mt-2 rounded-xl bg-stone-50 p-4 text-sm text-stone-600 space-y-1.5">
+              <p>↩️ <strong>14-day easy exchange</strong> from delivery date.</p>
+              <p>✅ Items must be unused, unwashed, with tags intact and original packaging.</p>
+              <p>📲 WhatsApp us your order number + item photo — we arrange pickup and send the replacement.</p>
+              <p>⚠️ Sale items can be exchanged only if faulty or damaged.</p>
+            </div>
+          )}
+
+          <p className="mt-3 text-xs text-stone-400">Disclaimer: Actual product color and texture may slightly vary from the image.</p>
 
           <div className="mt-6">
             <div className="flex items-center justify-between">

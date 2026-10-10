@@ -92,13 +92,13 @@ export default async function HomePage() {
       {/* MID-SITE PROMO BANNER */}
       <PromoBanner />
 
-      {/* BESTSELLERS */}
+      {/* TRENDING NOW */}
       {bestsellers.length > 0 && (
         <section className="mt-16 bg-stone-50 border-y border-stone-200">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <div className="flex items-end justify-between">
-              <h2 className="text-xl font-semibold tracking-tight text-stone-950">Bestsellers</h2>
-              <Link href="/shop" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
+              <h2 className="text-xl font-semibold tracking-tight text-stone-950">Trending Now</h2>
+              <Link href="/shop?sort=bestselling" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
             </div>
             <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {bestsellers.map((p) => <ProductCard key={p.id} product={p} />)}

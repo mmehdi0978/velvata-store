@@ -14,6 +14,7 @@ const CATS = [
 const SIZES = ["XS", "S", "M", "L", "XL", "Unstitched", "One Size"];
 const SORTS = [
   { key: "newest", label: "Newest" },
+  { key: "bestselling", label: "Best Selling" },
   { key: "price-asc", label: "Price: Low → High" },
   { key: "price-desc", label: "Price: High → Low" },
   { key: "discount", label: "Biggest Discount" },
@@ -29,6 +30,7 @@ interface FullProduct extends CardProduct {
   fabric?: string;
   color?: string;
   createdAt?: string;
+  bestseller?: boolean | number;
 }
 
 function effPrice(p: FullProduct) {
@@ -89,6 +91,7 @@ export default function ShopPage() {
     list = [...list].sort((a, b) => {
       if (sort === "price-asc") return effPrice(a) - effPrice(b);
       if (sort === "price-desc") return effPrice(b) - effPrice(a);
+      if (sort === "bestselling") return Number(b.bestseller || 0) - Number(a.bestseller || 0);
       if (sort === "discount") {
         const da = a.salePrice ? (a.price - a.salePrice) / a.price : 0;
         const db = b.salePrice ? (b.price - b.salePrice) / b.price : 0;
@@ -171,6 +174,29 @@ export default function ShopPage() {
           {filtered.map((p) => <ProductCard key={p.id} product={p} />)}
         </div>
       )}
+
+      {/* SEO content — Furor collection pages carry category content blocks */}
+      <div className="mt-16 max-w-3xl text-sm text-stone-500 space-y-4 leading-relaxed">
+        <h2 className="text-lg font-semibold text-stone-900">Women's Fashion Online in Pakistan</h2>
+        <p>
+          When shopping for women's clothing online in Pakistan, shoppers look for real quality,
+          honest prices and designs that suit every occasion. From everyday lawn suits to festive
+          chiffon and warm winter shawls, Velvata brings embroidered unstitched fabric, ready-to-wear
+          outfits and premium wraps together in one place — with cash on delivery nationwide.
+        </p>
+        <h3 className="text-base font-semibold text-stone-900">Embroidered Unstitched Suits</h3>
+        <p>
+          Unstitched lawn, cambric, khaddar and karandi remain the heart of Pakistani wardrobes.
+          Choose your fabric, pick your size, and get it stitched to your exact measurements.
+          Sale season is the best time to stock up on premium embroidered 3-piece suits at reduced prices.
+        </p>
+        <h3 className="text-base font-semibold text-stone-900">Ready to Wear &amp; Shawls</h3>
+        <p>
+          Our pret collection offers stitched kurtis and 3-piece suits that are ready to wear out of
+          the parcel. Complete your winter look with semi-pashmina, velvet embroidered and khaddar
+          wool shawls — soft, warm and elegantly finished.
+        </p>
+      </div>
     </div>
   );
 }

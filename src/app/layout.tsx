@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               phone={s.support_phone}
             />
             <main className="min-h-[70vh]">{children}</main>
-            <Footer storeName={s.store_name} tagline={s.store_tagline} />
+            <Footer storeName={s.store_name} tagline={s.store_tagline} phone={s.support_phone} />
             <CartDrawer />
             <WhatsAppFloat />
             <Chatbot />

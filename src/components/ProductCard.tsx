@@ -151,7 +151,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           />
           <div className="absolute top-2 left-2 flex flex-col gap-1">
             {pct && (
-              <span className="rounded-full bg-stone-950 text-white text-[11px] font-bold px-2.5 py-1">-{pct}%</span>
+              <span className="rounded-full bg-stone-950 text-white text-[11px] font-bold px-2.5 py-1">Save {pct}%</span>
             )}
             {product.stock === 0 && (
               <span className="rounded-full bg-stone-500 text-white text-[11px] font-bold px-2.5 py-1">Sold Out</span>
