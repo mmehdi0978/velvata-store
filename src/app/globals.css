@@ -47,13 +47,13 @@ body {
 .border-babli { border-color: var(--babli-rose); }
 
 .btn-babli {
-  background-color: var(--babli-rose);
+  background-color: #000;
   color: #fff;
   font-weight: 600;
   border-radius: 9999px;
   transition: background-color 0.2s;
 }
-.btn-babli:hover { background-color: var(--babli-rose-dark); }
+.btn-babli:hover { background-color: #333; }
 
 /* Hero carousel fade */
 @keyframes velvata-fade {

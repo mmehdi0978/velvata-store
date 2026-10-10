@@ -39,14 +39,22 @@ export default function Navbar({
 
   return (
     <>
-      {/* Announcement bar — with info page links (Furor style) */}
-      <div className="bg-stone-950 text-white text-[11px] uppercase tracking-[0.18em] px-4 py-2">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="truncate">
-            {announcement || "Free delivery on orders above Rs 3,000 · COD available across Pakistan"}
-            {phone && <span className="hidden sm:inline"> · {phone}</span>}
+      {/* Announcement bar — scrolling marquee (Furor style) */}
+      <div className="bg-stone-950 text-white text-[11px] uppercase tracking-[0.18em] overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4">
+          <div className="flex-1 overflow-hidden py-2">
+            <div className="flex whitespace-nowrap animate-[marquee_22s_linear_infinite] gap-12 w-max">
+              {[0, 1].map((n) => (
+                <span key={n} className="flex gap-12">
+                  <span>📦 Free delivery on orders above Rs 3,000</span>
+                  <span>🔥 Final Call — Season End Sale, up to 60% off</span>
+                  <span>💵 Cash on Delivery available across Pakistan</span>
+                  {phone && <span>📞 {phone} · MON-SAT, 9:00 TO 6:00</span>}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-4 shrink-0">
+          <div className="hidden md:flex items-center gap-4 shrink-0 py-2">
             <Link href="/about" className="hover:text-stone-300">About Us</Link>
             <Link href="/contact" className="hover:text-stone-300">Contact Us</Link>
             <Link href="/faq" className="hover:text-stone-300">FAQs</Link>
@@ -55,6 +63,7 @@ export default function Navbar({
           </div>
         </div>
       </div>
+      <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
 
       <header className="sticky top-0 z-40 bg-black">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3">

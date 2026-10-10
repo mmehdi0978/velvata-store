@@ -36,11 +36,11 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
       ) : (
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 75% 25%, rgba(255,255,255,0.5), transparent 55%), radial-gradient(circle at 15% 85%, rgba(255,255,255,0.25), transparent 50%)" }} />
       )}
-      <div key={idx} className="velvata-hero-anim relative max-w-6xl mx-auto px-4 py-16 sm:py-24 text-center">
+      <div key={idx} className="velvata-hero-anim relative w-full px-4 py-20 sm:py-28 md:py-32 text-center">
         <p className="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-white/70">Qomash Wears · New Collection</p>
-        <h1 className="mt-4 text-4xl sm:text-6xl font-bold tracking-tight leading-tight drop-shadow-lg">{s.title}</h1>
+        <h1 className="mt-4 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight drop-shadow-lg">{s.title}</h1>
         <p className="mt-4 text-white/85 text-base sm:text-lg max-w-xl mx-auto font-light">{s.subtitle}</p>
-        <Link href={s.link} className="mt-8 inline-block rounded-full bg-stone-950 text-white font-semibold px-10 py-3.5 text-sm uppercase tracking-[0.18em] hover:bg-stone-800 transition">
+        <Link href={s.link} className="mt-8 inline-block rounded-full bg-white text-black font-semibold px-10 py-3.5 text-sm uppercase tracking-[0.18em] hover:bg-stone-200 transition">
           {s.cta}
         </Link>
       </div>

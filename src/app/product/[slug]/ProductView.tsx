@@ -83,8 +83,8 @@ export default function ProductView({ product, sizes, images, related }: Props) 
 
         {/* details */}
         <div>
-          <Link href="/shop" className="text-sm text-stone-500 hover:text-babli">← Back to shop</Link>
-          <div className="mt-2 text-xs uppercase tracking-widest text-babli font-semibold">{categoryLabel(product.category)}</div>
+          <Link href="/shop" className="text-sm text-stone-500 hover:text-orange-600">← Back to shop</Link>
+          <div className="mt-2 text-xs uppercase tracking-widest text-orange-600 font-semibold">{categoryLabel(product.category)}</div>
           <h1 className="mt-1 font-serif text-3xl font-bold text-stone-900">{product.name}</h1>
           {(product.reviewCount || 0) > 0 && (
             <a href="#reviews" className="mt-2 inline-flex items-center gap-1.5 text-sm">
@@ -97,11 +97,11 @@ export default function ProductView({ product, sizes, images, related }: Props) 
             </a>
           )}
           <div className="mt-3 flex items-baseline gap-3 flex-wrap">
-            <span className="text-2xl font-bold text-babli-dark">{formatPkr(price)}</span>
+            <span className="text-2xl font-bold text-stone-950">{formatPkr(price)}</span>
             {product.salePrice && (
               <>
                 <span className="text-lg text-stone-400 line-through">{formatPkr(product.price)}</span>
-                <span className="text-xs font-bold bg-babli text-white px-2.5 py-1 rounded-full">Save {pct}% OFF</span>
+                <span className="text-xs font-bold bg-black text-white px-2.5 py-1 rounded-full">Save {pct}% OFF</span>
               </>
             )}
           </div>
@@ -123,7 +123,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
           <p className="mt-4 text-stone-600 leading-relaxed">{product.description}</p>
 
           {/* fabric & care accordion */}
-          <button onClick={() => setCareOpen(!careOpen)} className="mt-4 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-babli">
+          <button onClick={() => setCareOpen(!careOpen)} className="mt-4 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-stone-950">
             Fabric &amp; Care Details
             <span>{careOpen ? "−" : "+"}</span>
           </button>
@@ -137,7 +137,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
           )}
 
           {/* delivery terms accordion — Furor style */}
-          <button onClick={() => setShipOpen(!shipOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-babli">
+          <button onClick={() => setShipOpen(!shipOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-stone-950">
             Delivery Terms &amp; Conditions
             <span>{shipOpen ? "−" : "+"}</span>
           </button>
@@ -145,12 +145,12 @@ export default function ProductView({ product, sizes, images, related }: Props) 
             <div className="mt-2 rounded-xl bg-stone-50 p-4 text-sm text-stone-600 space-y-1.5">
               <p>🚚 <strong>Dispatched</strong> within 24–48 hours; delivered in <strong>3–5 working days</strong> nationwide.</p>
               <p>💵 <strong>Flat Rs 250</strong> shipping per order — <strong>FREE on orders of Rs 3,000+</strong>.</p>
-              <p>📦 Cash on Delivery available across Pakistan. Track anytime from the <Link href="/track" className="text-babli underline">Track Order</Link> page.</p>
+              <p>📦 Cash on Delivery available across Pakistan. Track anytime from the <Link href="/track" className="text-stone-950 underline">Track Order</Link> page.</p>
             </div>
           )}
 
           {/* exchange eligibility accordion — Furor style */}
-          <button onClick={() => setExchangeOpen(!exchangeOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-babli">
+          <button onClick={() => setExchangeOpen(!exchangeOpen)} className="mt-2 w-full flex items-center justify-between rounded-xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-700 hover:border-stone-950">
             Exchange Eligibility
             <span>{exchangeOpen ? "−" : "+"}</span>
           </button>
@@ -168,7 +168,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
           <div className="mt-6">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-stone-900">Select size</div>
-              <button onClick={() => setChartOpen(true)} className="text-sm text-babli hover:underline">Size Chart 📏</button>
+              <button onClick={() => setChartOpen(true)} className="text-sm text-stone-950 hover:underline">Size Chart 📏</button>
             </div>
             <div className="mt-2 flex gap-2 flex-wrap">
               {sizes.map((s) => (
@@ -176,7 +176,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
                   key={s}
                   onClick={() => setSize(s)}
                   className={`min-w-11 px-4 py-2 rounded-xl border text-sm font-medium ${
-                    size === s ? "bg-babli text-white border-babli" : "border-stone-300 hover:border-babli"
+                    size === s ? "bg-black text-white border-black" : "border-stone-300 hover:border-stone-950"
                   }`}
                 >
                   {s}
@@ -197,7 +197,7 @@ export default function ProductView({ product, sizes, images, related }: Props) 
             <button
               onClick={handleAdd}
               disabled={out}
-              className="w-full rounded-full border-2 border-babli text-babli-dark font-semibold py-3.5 hover:bg-babli-blush disabled:opacity-40"
+              className="w-full rounded-full border-2 border-babli text-stone-950 font-semibold py-3.5 hover:bg-stone-100 disabled:opacity-40"
             >
               Add to Cart — {formatPkr(price * qty)}
             </button>

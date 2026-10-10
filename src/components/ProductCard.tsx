@@ -97,7 +97,16 @@ export function discountPct(p: CardProduct): number | null {
 }
 
 export function categoryLabel(cat: string): string {
-  const map: Record<string, string> = { unstitched: "Unstitched", pret: "Ready to Wear", shawls: "Shawls" };
+  const map: Record<string, string> = {
+    women: "Women",
+    men: "Men",
+    winter: "Winter Collection",
+    footwear: "Footwear",
+    accessories: "Accessories",
+    unstitched: "Women",
+    pret: "Women",
+    shawls: "Winter Collection",
+  };
   return map[cat] || cat;
 }
 
