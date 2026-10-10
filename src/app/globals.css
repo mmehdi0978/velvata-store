@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Babli — premium women's fashion boutique theme */
+:root {
+  --font-serif: Georgia, "Times New Roman", serif;
+  --babli-rose: #1c1917;        /* primary — black/white theme */
+  --babli-rose-dark: #0c0a09;
+  --babli-rose-deep: #0c0a09;
+  --babli-blush: #fafaf9;       /* soft backgrounds */
+  --babli-gold: #b45309;        /* accents */
+  --babli-charcoal: #1c1917;    /* text */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: var(--babli-charcoal);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.min-h-10 {
+  min-height: 2.5rem;
+}
+
+/* Brand helpers */
+.bg-babli { background-color: var(--babli-rose); }
+.bg-babli-dark { background-color: var(--babli-rose-dark); }
+.bg-babli-deep { background-color: var(--babli-rose-deep); }
+.bg-babli-blush { background-color: var(--babli-blush); }
+.text-babli { color: var(--babli-rose); }
+.text-babli-dark { color: var(--babli-rose-dark); }
+.text-babli-gold { color: var(--babli-gold); }
+.border-babli { border-color: var(--babli-rose); }
+
+.btn-babli {
+  background-color: var(--babli-rose);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+.btn-babli:hover { background-color: var(--babli-rose-dark); }
+
+/* Hero carousel fade */
+@keyframes velvata-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.velvata-hero-anim { animation: velvata-fade 0.6s ease both; }
+
+/* Hide scrollbars for carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
