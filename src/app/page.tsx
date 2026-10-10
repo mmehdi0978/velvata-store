@@ -8,9 +8,9 @@ import { getPublicSettingsSafe } from "@/lib/settings";
 export const dynamic = "force-dynamic";
 
 const CATEGORIES = [
-  { key: "women", label: "Women", blurb: "Embroidered suits & pret wear", img: "/images/lifestyle/cat-1.jpg" },
-  { key: "men", label: "Men", blurb: "Coming soon — premium menswear", img: "/images/lifestyle/cat-2.jpg" },
-  { key: "winter", label: "Winter Collection", blurb: "Pashmina & wool shawls", img: "/images/lifestyle/cat-3.jpg" },
+  { key: "women", label: "Women", blurb: "Embroidered suits & pret wear", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666852/qomash-products/qomash-women-category-tile.webp" },
+  { key: "men", label: "Men", blurb: "Premium menswear collection", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666854/qomash-products/qomash-men-category-tile.webp" },
+  { key: "winter", label: "Winter Collection", blurb: "Pashmina & wool shawls", img: "https://res.cloudinary.com/wckxcqye/image/upload/v1791666887/qomash-products/qomash-couple-category-tile.webp" },
 ];
 
 async function getProducts(where: string, limit: number): Promise<Product[]> {

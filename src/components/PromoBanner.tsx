@@ -8,7 +8,7 @@ export default function PromoBanner() {
         <div className="relative h-[380px] sm:h-[460px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/lifestyle/promo-mid.jpg"
+            src="https://res.cloudinary.com/wckxcqye/image/upload/v1791666888/qomash-products/qomash-festive-banner.webp"
             alt="The Festive Edit"
             className="absolute inset-0 w-full h-full object-cover"
           />
