@@ -9,6 +9,8 @@ const CATS = [
   { key: "women", label: "Women" },
   { key: "men", label: "Men" },
   { key: "winter", label: "Winter Collection" },
+  { key: "footwear", label: "Footwear" },
+  { key: "accessories", label: "Accessories" },
   { key: "sale", label: "Sale" },
 ];
 const SIZES = ["XS", "S", "M", "L", "XL", "Unstitched", "One Size"];

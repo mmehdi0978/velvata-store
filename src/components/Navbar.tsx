@@ -5,11 +5,13 @@ import { useCart } from "./CartProvider";
 import { useWishlist } from "./WishlistProvider";
 
 const NAV: { href: string; label: string; hot?: boolean }[] = [
+  { href: "/shop?sale=1", label: "Final Call - Season End Sale", hot: true },
   { href: "/shop?sort=newest", label: "New Arrivals" },
   { href: "/shop?category=men", label: "Men" },
-  { href: "/shop?category=women", label: "Women" },
   { href: "/shop?category=winter", label: "Winter Collection" },
-  { href: "/shop?sale=1", label: "Sale", hot: true },
+  { href: "/shop?category=women", label: "Women" },
+  { href: "/shop?category=footwear", label: "Footwear" },
+  { href: "/shop?category=accessories", label: "Accessories" },
 ];
 
 export default function Navbar({
