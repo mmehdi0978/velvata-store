@@ -6,9 +6,9 @@ import ProductCard, { CardProduct } from "@/components/ProductCard";
 
 const CATS = [
   { key: "", label: "All" },
-  { key: "unstitched", label: "Unstitched" },
-  { key: "pret", label: "Ready to Wear" },
-  { key: "shawls", label: "Shawls" },
+  { key: "women", label: "Women" },
+  { key: "men", label: "Men" },
+  { key: "winter", label: "Winter Collection" },
   { key: "sale", label: "Sale" },
 ];
 const SIZES = ["XS", "S", "M", "L", "XL", "Unstitched", "One Size"];

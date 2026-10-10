@@ -8,9 +8,9 @@ import { getPublicSettingsSafe } from "@/lib/settings";
 export const dynamic = "force-dynamic";
 
 const CATEGORIES = [
-  { key: "unstitched", label: "Unstitched", blurb: "Lawn, chiffon, khaddar & karandi", img: "/images/lifestyle/cat-1.jpg" },
-  { key: "pret", label: "Ready to Wear", blurb: "Stitched kurtis & 3-piece suits", img: "/images/lifestyle/cat-2.jpg" },
-  { key: "shawls", label: "Shawls", blurb: "Pashmina & wool wraps", img: "/images/lifestyle/cat-3.jpg" },
+  { key: "women", label: "Women", blurb: "Embroidered suits & pret wear", img: "/images/lifestyle/cat-1.jpg" },
+  { key: "men", label: "Men", blurb: "Coming soon — premium menswear", img: "/images/lifestyle/cat-2.jpg" },
+  { key: "winter", label: "Winter Collection", blurb: "Pashmina & wool shawls", img: "/images/lifestyle/cat-3.jpg" },
 ];
 
 async function getProducts(where: string, limit: number): Promise<Product[]> {
