@@ -43,11 +43,11 @@ export default function Navbar({
         {phone && <span className="hidden sm:inline"> · {phone}</span>}
       </div>
 
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+      <header className="sticky top-0 z-40 bg-black">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <button
-              className="sm:hidden p-2 -ml-2 text-stone-700"
+              className="sm:hidden p-2 -ml-2 text-white"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
@@ -55,24 +55,24 @@ export default function Navbar({
                 <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
               </svg>
             </button>
-            <Link href="/" className="flex items-center gap-2.5 text-stone-950">
+            <Link href="/" className="flex items-center gap-2.5 text-white">
               {logoPath ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={logoPath} alt={storeName} className="h-9 w-9 object-contain rounded" />
               ) : (
-                <span className="h-9 w-9 grid place-items-center rounded-full bg-stone-950 text-white text-lg font-bold">B</span>
+                <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
               )}
               <span className="truncate text-xl font-bold uppercase tracking-[0.22em]">{storeName}</span>
             </Link>
           </div>
 
-          {/* Simple top links — one row */}
-          <nav className="hidden sm:flex items-center gap-7 text-sm font-medium text-stone-500">
+          {/* Nav links — Furor style: white uppercase */}
+          <nav className="hidden sm:flex items-center gap-7 text-[13px] font-medium uppercase tracking-wide text-white">
             {NAV.map((n) => (
               <Link
                 key={n.label}
                 href={n.href}
-                className={`hover:text-stone-950 transition-colors ${n.hot ? "text-babli font-semibold" : ""}`}
+                className={`hover:text-stone-300 transition-colors ${n.hot ? "text-orange-500 font-semibold" : ""}`}
               >
                 {n.label}
               </Link>
@@ -80,45 +80,34 @@ export default function Navbar({
           </nav>
 
           <div className="flex items-center gap-1 sm:gap-2">
-            <Link href="/shop" aria-label="Search" className="p-2 text-stone-700 hover:text-stone-950">
+            <Link href="/account" className="hidden sm:block px-2 text-[13px] font-medium uppercase tracking-wide text-white hover:text-stone-300">
+              {customerName ? `Hi, ${customerName}` : "Login"}
+            </Link>
+            <Link href="/shop" aria-label="Search" className="p-2 text-white hover:text-stone-300">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" strokeLinecap="round" />
               </svg>
             </Link>
-            <Link href="/wishlist" aria-label="Wishlist" className="relative p-2 text-stone-700 hover:text-stone-950">
+            <Link href="/wishlist" aria-label="Wishlist" className="relative p-2 text-white hover:text-stone-300">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
               </svg>
               {wishCount > 0 && (
-                <span className="absolute top-0.5 right-0.5 h-4 min-w-4 px-1 grid place-items-center rounded-full bg-babli text-white text-[10px] font-bold">
+                <span className="absolute top-0.5 right-0.5 h-4 min-w-4 px-1 grid place-items-center rounded-full bg-red-600 text-white text-[10px] font-bold">
                   {wishCount}
                 </span>
               )}
             </Link>
-            <Link
-              href="/account"
-              aria-label={customerName ? `My account (${customerName})` : "My account"}
-              title={customerName ? `Hi, ${customerName}` : "Log in / Sign up"}
-              className="p-2 text-stone-700 hover:text-stone-950"
-            >
-              {customerName ? (
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-babli text-white text-xs font-bold">
-                  {customerName.charAt(0).toUpperCase()}
-                </span>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" strokeLinecap="round" />
-                </svg>
-              )}
-            </Link>
             <button
               onClick={() => setDrawerOpen(true)}
-              className="relative inline-flex items-center gap-2 rounded-full bg-stone-950 text-white px-4 py-2 text-sm font-medium hover:bg-stone-800"
+              className="relative p-2 text-white hover:text-stone-300"
               aria-label="Open cart"
             >
-              🛒 <span className="hidden sm:inline">Cart</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
               {count > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 h-5 min-w-5 px-1 grid place-items-center rounded-full bg-babli text-[11px] font-bold text-white">
+                <span className="absolute top-0.5 right-0.5 h-4 min-w-4 px-1 grid place-items-center rounded-full bg-red-600 text-[10px] font-bold text-white">
                   {count}
                 </span>
               )}
