@@ -6,12 +6,21 @@ import ProductCard, { CardProduct } from "@/components/ProductCard";
 
 const CATS = [
   { key: "", label: "All" },
-  { key: "women", label: "Women" },
   { key: "men", label: "Men" },
   { key: "winter", label: "Winter Collection" },
   { key: "footwear", label: "Footwear" },
   { key: "accessories", label: "Accessories" },
   { key: "sale", label: "Sale" },
+];
+
+// Furor-style category tab bar (below header on collection pages)
+const CATEGORY_TABS = [
+  { key: "all", label: "ALL" },
+  { key: "men", label: "MEN" },
+  { key: "women", label: "WOMEN" },
+  { key: "footwear", label: "FOOTWEAR" },
+  { key: "winter", label: "WINTER COLLECTION" },
+  { key: "accessories", label: "ACCESSORIES" },
 ];
 const SIZES = ["XS", "S", "M", "L", "XL", "Unstitched", "One Size"];
 const SORTS = [
@@ -113,6 +122,26 @@ export default function ShopPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Furor-style category tab bar */}
+      <div className="flex items-center justify-center gap-1 sm:gap-2 mb-8 bg-stone-100 rounded-lg px-4 py-3 overflow-x-auto">
+        {CATEGORY_TABS.map((t) => {
+          const isActive = (t.key === "all" && !cat) || t.key === cat;
+          return (
+            <a
+              key={t.key}
+              href={t.key === "all" ? "/shop" : `/shop?category=${t.key}`}
+              className={`px-3 sm:px-4 py-1 text-[13px] font-medium uppercase tracking-wide whitespace-nowrap border-b-2 transition-colors ${
+                isActive
+                  ? "text-orange-600 border-orange-600"
+                  : "text-stone-600 border-transparent hover:text-stone-950"
+              }`}
+            >
+              {t.label}
+            </a>
+          );
+        })}
+      </div>
+
       <div className="flex items-end justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-stone-950">

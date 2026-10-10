@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 import { useWishlist } from "./WishlistProvider";
 
-const NAV: { href: string; label: string; hot?: boolean; dropdown?: { href: string; label: string }[] }[] = [
+const NAV: { href: string; label: string; hot?: boolean; isNew?: boolean; dropdown?: { href: string; label: string }[] }[] = [
   { href: "/shop?sale=1", label: "Final Call - Season End Sale", hot: true },
-  { href: "/shop?sort=newest", label: "New Arrivals" },
+  { href: "/shop?sort=newest", label: "New Arrivals", isNew: true },
   {
     href: "/shop?category=men", label: "Men",
     dropdown: [
@@ -134,8 +134,11 @@ export default function Navbar({
               <div key={n.label} className="relative group/nav">
                 <Link
                   href={n.href}
-                  className={`flex items-center gap-1 hover:text-stone-300 transition-colors py-5 ${n.hot ? "text-orange-500 font-semibold" : ""}`}
+                  className={`relative flex items-center gap-1 hover:text-stone-300 transition-colors py-5 ${n.hot ? "text-orange-500 font-semibold" : ""}`}
                 >
+                  {n.isNew && (
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-[9px] font-bold text-orange-500 uppercase tracking-wider">New</span>
+                  )}
                   {n.label}
                   {n.dropdown && (
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
