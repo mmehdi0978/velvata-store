@@ -1,5 +1,5 @@
 "use client";
-// Velvata checkout: details + payment (COD / JazzCash / Easypaisa / WhatsApp) + discount codes.
+// Qomash Wears checkout: details + payment (COD / JazzCash / Easypaisa / WhatsApp) + discount codes.
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/components/CartProvider";

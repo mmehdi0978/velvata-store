@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Journal — Velvata",
+  title: "Journal — Qomash Wears",
   description: "Style guides, fabric explainers and care tips for Pakistani women's fashion.",
 };
 
@@ -35,7 +35,7 @@ export default async function BlogPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500 text-center">Velvata</p>
+      <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500 text-center">Qomash Wears</p>
       <h1 className="mt-2 text-3xl sm:text-4xl font-bold uppercase tracking-[0.12em] text-stone-950 text-center">Journal</h1>
       <p className="mt-3 text-stone-600 text-center font-light max-w-xl mx-auto">
         Style guides, fabric explainers and care tips for Pakistani women&apos;s fashion.
@@ -53,7 +53,7 @@ export default async function BlogPage() {
                   <img src={p.coverImage} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
                 ) : (
                   <div className="h-full w-full flex items-center justify-center">
-                    <span className="text-[11px] uppercase tracking-[0.35em] text-stone-400">Velvata</span>
+                    <span className="text-[11px] uppercase tracking-[0.35em] text-stone-400">Qomash Wears</span>
                   </div>
                 )}
               </div>

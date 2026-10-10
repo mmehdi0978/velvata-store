@@ -25,7 +25,7 @@ export default function Chatbot() {
   const [msgs, setMsgs] = useState<Msg[]>([
     {
       role: "assistant",
-      content: "Assalam-o-Alaikum! 👋 Main Velvata Assistant hun. Products, delivery, ya order ke bare me kuch poochna hai?",
+      content: "Assalam-o-Alaikum! 👋 Main Qomash Wears Assistant hun. Products, delivery, ya order ke bare me kuch poochna hai?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -62,7 +62,7 @@ export default function Chatbot() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        aria-label="Chat with Velvata Assistant"
+        aria-label="Chat with Qomash Wears Assistant"
         className="fixed bottom-20 right-4 z-50 w-14 h-14 rounded-full bg-black text-white shadow-lg flex items-center justify-center hover:bg-stone-800 transition"
       >
         {open ? (
@@ -85,7 +85,7 @@ export default function Chatbot() {
               B
             </div>
             <div>
-              <div className="font-semibold text-sm">Velvata Assistant</div>
+              <div className="font-semibold text-sm">Qomash Wears Assistant</div>
               <div className="text-xs text-stone-300 flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-green-400 inline-block" /> Online
               </div>

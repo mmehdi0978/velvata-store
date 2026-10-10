@@ -1,5 +1,5 @@
 "use client";
-// Velvata product detail: zoom gallery, size chart, stock/delivery info, fabric & care,
+// Qomash Wears product detail: zoom gallery, size chart, stock/delivery info, fabric & care,
 // quantity, Add to Cart + Buy Now, related products, reviews.
 import { useState } from "react";
 import Link from "next/link";

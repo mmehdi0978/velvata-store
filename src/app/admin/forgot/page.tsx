@@ -28,7 +28,7 @@ export default function AdminForgotPage() {
           <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-stone-950 text-white font-serif text-xl font-bold">
             B
           </div>
-          <h1 className="mt-3 font-serif text-2xl font-bold text-stone-900 tracking-wide">VELVATA</h1>
+          <h1 className="mt-3 font-serif text-2xl font-bold text-stone-900 tracking-wide">QOMASH WEARS</h1>
           <p className="text-xs uppercase tracking-[0.22em] text-stone-500 mt-1">Reset Password</p>
           <p className="text-sm text-stone-500 mt-2">Enter your admin email — we&apos;ll send a reset link (valid 1 hour).</p>
         </div>

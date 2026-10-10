@@ -15,9 +15,9 @@ async function getPost(slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Article — Velvata" };
+  if (!post) return { title: "Article — Qomash Wears" };
   return {
-    title: `${post.title} — Velvata`,
+    title: `${post.title} — Qomash Wears`,
     description: post.metaDescription || post.excerpt || post.title,
   };
 }
@@ -69,7 +69,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         <Body text={post.body} />
       </div>
       <div className="mt-12 border-t border-stone-200 pt-8 text-center">
-        <p className="text-[11px] uppercase tracking-[0.35em] text-stone-400">Velvata</p>
+        <p className="text-[11px] uppercase tracking-[0.35em] text-stone-400">Qomash Wears</p>
         <Link href="/shop" className="mt-4 inline-block rounded-full bg-stone-950 text-white font-semibold px-10 py-3.5 text-sm uppercase tracking-[0.18em] hover:bg-stone-800 transition">
           Shop the Collection
         </Link>

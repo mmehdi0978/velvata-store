@@ -1,5 +1,5 @@
 "use client";
-// Velvata shop: search + category + fabric + size + color + price filters + sort.
+// Qomash Wears shop: search + category + fabric + size + color + price filters + sort.
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard, { CardProduct } from "@/components/ProductCard";
@@ -181,7 +181,7 @@ export default function ShopPage() {
         <p>
           When shopping for women's clothing online in Pakistan, shoppers look for real quality,
           honest prices and designs that suit every occasion. From everyday lawn suits to festive
-          chiffon and warm winter shawls, Velvata brings embroidered unstitched fabric, ready-to-wear
+          chiffon and warm winter shawls, Qomash Wears brings embroidered unstitched fabric, ready-to-wear
           outfits and premium wraps together in one place — with cash on delivery nationwide.
         </p>
         <h3 className="text-base font-semibold text-stone-900">Embroidered Unstitched Suits</h3>

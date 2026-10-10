@@ -60,7 +60,7 @@ export function isSmtpConfigured(): boolean {
   return smtpConfigured();
 }
 
-const STORE = () => process.env.STORE_NAME || "Velvata";
+const STORE = () => process.env.STORE_NAME || "Qomash Wears";
 
 export async function sendVerificationEmail(to: string, name: string, link: string): Promise<boolean> {
   const store = STORE();

@@ -37,7 +37,7 @@ export async function getPublicSettings() {
     announcement_text, support_phone, easypaisa_enabled, easypaisa_number, easypaisa_account_title,
     shipping_fee, free_shipping_above, hero_slides] =
     await Promise.all([
-      getSetting("store_name", "Velvata"),
+      getSetting("store_name", "Qomash Wears"),
       getSetting("store_tagline", ""),
       getSetting("whatsapp_number", ""),
       getSetting("facebook_url", ""),
@@ -64,7 +64,7 @@ export async function getPublicSettings() {
 }
 
 const FALLBACK_PUBLIC_SETTINGS = {
-  store_name: "Velvata",
+  store_name: "Qomash Wears",
   store_tagline: "Premium women's fashion — delivered across Pakistan.",
   whatsapp_number: "",
   facebook_url: "",
