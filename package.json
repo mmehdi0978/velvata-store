@@ -1,0 +1,41 @@
+{
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/browser": "^8.0.4",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/status-bar": "^8.0.3",
+    "@libsql/client": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "next": "^15.1.0",
+    "next-auth": "^5.0.0-beta.32",
+    "nodemailer": "^8.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "description": "Women's clothing e-commerce store (Pakistan) — Velvata — JazzCash + COD + WhatsApp ordering, with admin panel",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^24.13.6",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "name": "velvata-store",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "db:seed": "node scripts/seed.mjs",
+    "dev": "next dev",
+    "setup": "npm install && npm run db:seed && node scripts/generate-placeholders.mjs",
+    "start": "next start",
+    "mobile:sync": "npx cap sync android",
+    "mobile:build:apk": "python3 scripts/android-manual-build/build_apk.py",
+    "mobile:deps": "python3 scripts/android-manual-build/resolve_deps.py /tmp/apkbuild/deps"
+  },
+  "version": "1.0.0"
+}
