@@ -180,9 +180,27 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           >
             {wished ? "♥" : "♡"}
           </button>
+          {/* Sizes overlay on image (hover) — like Furor */}
+          {(() => {
+            let sizes: string[] = [];
+            try { sizes = JSON.parse(product.sizes || "[]"); } catch { /* ignore */ }
+            if (!hover || !sizes.length) return null;
+            return (
+              <div className="absolute bottom-2 left-2 right-2 flex flex-wrap gap-1 justify-center">
+                {sizes.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded bg-white/95 px-2 py-0.5 text-[11px] font-medium text-stone-950 shadow-sm"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            );
+          })()}
           {/* Image dots — show position while hovering through angles */}
           {hover && imgs.length > 1 && (
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+            <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex gap-1">
               {imgs.map((_, i) => (
                 <span
                   key={i}
