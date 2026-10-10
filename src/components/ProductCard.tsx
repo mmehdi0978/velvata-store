@@ -106,10 +106,27 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   const { addItem, setDrawerOpen } = useCart();
   const { has, toggle } = useWishlist();
   const [hover, setHover] = useState(false);
+  const [imgIdx, setImgIdx] = useState(0);
   const [added, setAdded] = useState(false);
   const pct = discountPct(product);
   const price = product.salePrice ?? product.price;
   const wished = has(product.id);
+
+  // Cycle through all product images while hovering (angle slideshow)
+  useEffect(() => {
+    if (!hover || imgs.length < 2) return;
+    const t = setInterval(() => setImgIdx((i) => (i + 1) % imgs.length), 800);
+    return () => clearInterval(t);
+  }, [hover, imgs.length]);
+
+  function onEnter() {
+    setHover(true);
+    setImgIdx(0);
+  }
+  function onLeave() {
+    setHover(false);
+    setImgIdx(0);
+  }
 
   function quickAdd(e: React.MouseEvent) {
     e.preventDefault();
@@ -134,14 +151,14 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   return (
     <div
       className="group relative bg-white"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
     >
       <Link href={`/product/${product.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-stone-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={hover && imgs[1] ? imgs[1] : imgs[0]}
+            src={imgs[imgIdx] || imgs[0]}
             alt={product.name}
             className="h-full w-full object-cover transition-opacity duration-300"
             loading="lazy"
@@ -163,6 +180,17 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           >
             {wished ? "♥" : "♡"}
           </button>
+          {/* Image dots — show position while hovering through angles */}
+          {hover && imgs.length > 1 && (
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+              {imgs.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 w-1.5 rounded-full transition ${i === imgIdx ? "bg-white" : "bg-white/40"}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
         <div className="pt-3">
           <div className="text-[10px] uppercase tracking-[0.2em] text-stone-400">{categoryLabel(product.category)}</div>
