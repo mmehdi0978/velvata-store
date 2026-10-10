@@ -160,7 +160,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           <img
             src={imgs[imgIdx] || imgs[0]}
             alt={product.name}
-            className="h-full w-full object-cover transition-opacity duration-300"
+            className="h-full w-full object-contain transition-opacity duration-300"
             loading="lazy"
           />
           <div className="absolute top-2 left-2 flex flex-col gap-1">
