@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { getDb, mapProduct, Product } from "@/lib/db";
-import ProductCard from "@/components/ProductCard";
 import HeroCarousel from "@/components/HeroCarousel";
 import PromoBanner from "@/components/PromoBanner";
 import { getPublicSettingsSafe } from "@/lib/settings";
@@ -41,6 +39,11 @@ function Tile({
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
       />
       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500" />
+      <div className="absolute inset-x-0 bottom-5 sm:bottom-8 flex justify-center px-4">
+        <span className="rounded-full bg-white px-7 sm:px-9 py-2 sm:py-2.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.18em] text-stone-900 shadow-xl whitespace-nowrap">
+          {label}
+        </span>
+      </div>
     </Link>
   );
 }
@@ -93,26 +96,8 @@ const TRUST_ITEMS = [
   },
 ];
 
-async function getProducts(where: string, limit: number): Promise<Product[]> {
-  try {
-    const rows = await (await getDb())
-      .prepare(`SELECT * FROM products WHERE active = 1 AND ${where} ORDER BY created_at DESC LIMIT ${limit}`)
-      .all() as Record<string, unknown>[];
-    return rows.map(mapProduct);
-  } catch (e) {
-    console.error("Homepage products failed:", (e as Error)?.message);
-    return [];
-  }
-}
-
 export default async function HomePage() {
   const s = await getPublicSettingsSafe();
-  const [featured, bestsellers, sale] = await Promise.all([
-    getProducts("featured = 1 AND (sale_price IS NULL OR sale_price >= price)", 8),
-    getProducts("bestseller = 1", 8),
-    getProducts("sale_price IS NOT NULL AND sale_price < price", 8),
-  ]);
-
   let slides: { title: string; subtitle: string; cta: string; link: string; bg1: string; bg2: string }[] = [];
   try {
     slides = JSON.parse(s.hero_slides || "[]");
