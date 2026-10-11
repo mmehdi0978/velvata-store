@@ -49,6 +49,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               logoPath={s.logo_path}
               announcement={s.announcement_text}
               phone={s.support_phone}
+              theme={{
+                logoText: s.logo_text,
+                logoColor: s.logo_color,
+                logoFont: s.logo_font,
+                logoSize: s.logo_size,
+                logoSpacing: s.logo_spacing,
+                headerBg: s.header_bg,
+              }}
             />
             <main className="min-h-[70vh]">{children}</main>
             <Footer storeName={s.store_name} tagline={s.store_tagline} phone={s.support_phone} />

@@ -12,7 +12,14 @@ export interface Slide {
   image?: string;
 }
 
-export default function HeroCarousel({ slides }: { slides: Slide[] }) {
+const HEIGHT_PADDINGS: Record<string, string> = {
+  small: "py-12 sm:py-16 md:py-20",
+  medium: "py-20 sm:py-28 md:py-32",
+  large: "py-28 sm:py-36 md:py-44",
+  tall: "py-36 sm:py-48 md:py-60",
+};
+
+export default function HeroCarousel({ slides, height = "medium" }: { slides: Slide[]; height?: string }) {
   const [idx, setIdx] = useState(0);
   const list = slides.length ? slides : [
     { title: "Qomash Wears", subtitle: "Premium women's fashion — delivered across Pakistan", cta: "Shop Now", link: "/shop", bg1: "#0c0a09", bg2: "#3b0764", image: "/images/lifestyle/hero-1.jpg" },
@@ -36,7 +43,7 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
       ) : (
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 75% 25%, rgba(255,255,255,0.5), transparent 55%), radial-gradient(circle at 15% 85%, rgba(255,255,255,0.25), transparent 50%)" }} />
       )}
-      <div key={idx} className="velvata-hero-anim relative w-full px-4 py-20 sm:py-28 md:py-32 text-center">
+      <div key={idx} className={`velvata-hero-anim relative w-full px-4 text-center ${HEIGHT_PADDINGS[height] || HEIGHT_PADDINGS.medium}`}>
         <p className="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-white/70">Qomash Wears · New Collection</p>
         <h1 className="mt-4 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight drop-shadow-lg">{s.title}</h1>
         <p className="mt-4 text-white/85 text-base sm:text-lg max-w-xl mx-auto font-light">{s.subtitle}</p>

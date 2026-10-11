@@ -12,6 +12,7 @@ const LINKS = [
   ["Blog", "/admin/blog"],
   ["Newsletter", "/admin/newsletter"],
   ["Discounts", "/admin/discounts"],
+  ["Theme", "/admin/theme"],
   ["Settings", "/admin/settings"],
 ];
 

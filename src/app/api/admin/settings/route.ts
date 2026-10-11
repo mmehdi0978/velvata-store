@@ -11,6 +11,11 @@ const EDITABLE = [
   "jazzcash_merchant_id", "jazzcash_password", "jazzcash_integrity_salt",
   "jazzcash_sandbox", "jazzcash_demo_mode", "jazzcash_return_url",
   "shipping_fee", "free_shipping_above",
+  // Theme control
+  "logo_text", "logo_color", "logo_font", "logo_size", "logo_spacing",
+  "header_bg", "accent_color", "sale_color",
+  "show_hero", "show_tiles", "show_trust", "show_promo", "show_seo",
+  "hero_height",
 ];
 
 export async function GET() {
