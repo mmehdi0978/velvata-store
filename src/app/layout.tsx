@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cinzel_Decorative, Marcellus } from "next/font/google";
 import { CartProvider } from "@/components/CartProvider";
 import { WishlistProvider } from "@/components/WishlistProvider";
 import Navbar from "@/components/Navbar";
@@ -11,6 +12,18 @@ import { getPublicSettingsSafe } from "@/lib/settings";
 import "./globals.css";
 
 export const dynamic = "force-dynamic";
+
+const cinzelDecorative = Cinzel_Decorative({
+  weight: ["700", "900"],
+  subsets: ["latin"],
+  variable: "--font-logo",
+});
+
+const marcellus = Marcellus({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-luxury",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const s = await getPublicSettingsSafe();
@@ -28,7 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const s = await getPublicSettingsSafe();
   return (
     <html lang="en">
-      <body>
+      <body className={`${cinzelDecorative.variable} ${marcellus.variable}`}>
         <CartProvider>
           <WishlistProvider>
             <Navbar
