@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Marcellus, Playfair_Display, Cormorant_Garamond, Bebas_Neue, Anton, Oswald, Montserrat } from "next/font/google";
+import { Cinzel_Decorative, Marcellus, Playfair_Display, Cormorant_Garamond, Bebas_Neue, Anton, Oswald, Montserrat, Bodoni_Moda, Italiana, Cinzel, Abril_Fatface, Raleway, Poppins, DM_Serif_Display, Libre_Baskerville, Josefin_Sans, Archivo_Black, Alfa_Slab_One, Lato } from "next/font/google";
 import { CartProvider } from "@/components/CartProvider";
 import { WishlistProvider } from "@/components/WishlistProvider";
 import Navbar from "@/components/Navbar";
@@ -61,6 +61,78 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const bodoni = Bodoni_Moda({
+  weight: ["700", "800"],
+  subsets: ["latin"],
+  variable: "--font-bodoni",
+});
+
+const italiana = Italiana({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-italiana",
+});
+
+const cinzelReg = Cinzel({
+  weight: ["700", "900"],
+  subsets: ["latin"],
+  variable: "--font-cinzelreg",
+});
+
+const abril = Abril_Fatface({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-abril",
+});
+
+const raleway = Raleway({
+  weight: ["700", "800"],
+  subsets: ["latin"],
+  variable: "--font-raleway",
+});
+
+const poppins = Poppins({
+  weight: ["700", "800"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
+
+const dmserif = DM_Serif_Display({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-dmserif",
+});
+
+const libre = Libre_Baskerville({
+  weight: ["700"],
+  subsets: ["latin"],
+  variable: "--font-libre",
+});
+
+const josefin = Josefin_Sans({
+  weight: ["600", "700"],
+  subsets: ["latin"],
+  variable: "--font-josefin",
+});
+
+const archivo = Archivo_Black({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-archivo",
+});
+
+const alfa = Alfa_Slab_One({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-alfa",
+});
+
+const lato = Lato({
+  weight: ["700", "900"],
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
+
 export async function generateMetadata(): Promise<Metadata> {
   const s = await getPublicSettingsSafe();
   return {
@@ -77,7 +149,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const s = await getPublicSettingsSafe();
   return (
     <html lang="en">
-      <body className={`${cinzelDecorative.variable} ${marcellus.variable} ${playfair.variable} ${cormorant.variable} ${bebas.variable} ${anton.variable} ${oswald.variable} ${montserrat.variable}`}>
+      <body className={`${cinzelDecorative.variable} ${marcellus.variable} ${playfair.variable} ${cormorant.variable} ${bebas.variable} ${anton.variable} ${oswald.variable} ${montserrat.variable} ${bodoni.variable} ${italiana.variable} ${cinzelReg.variable} ${abril.variable} ${raleway.variable} ${poppins.variable} ${dmserif.variable} ${libre.variable} ${josefin.variable} ${archivo.variable} ${alfa.variable} ${lato.variable}`}>
         <CartProvider>
           <WishlistProvider>
             <Navbar
