@@ -25,15 +25,15 @@ export default function SettingsPage() {
   function slidesToText(json: string): string {
     try {
       const arr = JSON.parse(json || "[]");
-      return arr.map((x: { title: string; subtitle: string; cta: string; link: string }) =>
-        [x.title, x.subtitle, x.cta, x.link].join(" | ")).join("\n");
+      return arr.map((x: { title: string; subtitle: string; cta: string; link: string; image?: string }) =>
+        [x.title, x.subtitle, x.cta, x.link, x.image || ""].join(" | ")).join("\n");
     } catch { return ""; }
   }
   function textToSlides(text: string): string {
     const palettes = [["#0c0a09", "#3b0764"], ["#0c0a09", "#701a2e"], ["#78350f", "#431407"], ["#701a75", "#3b0764"]];
     const arr = text.split("\n").map((l) => l.trim()).filter(Boolean).map((l, i) => {
-      const [title = "", subtitle = "", cta = "Shop Now", link = "/shop"] = l.split("|").map((x) => x.trim());
-      return { title, subtitle, cta, link, bg1: palettes[i % palettes.length][0], bg2: palettes[i % palettes.length][1] };
+      const [title = "", subtitle = "", cta = "Shop Now", link = "/shop", image = ""] = l.split("|").map((x) => x.trim());
+      return { title, subtitle, cta, link, image, bg1: palettes[i % palettes.length][0], bg2: palettes[i % palettes.length][1] };
     });
     return JSON.stringify(arr);
   }
@@ -157,7 +157,7 @@ export default function SettingsPage() {
 
       <div className="mt-4 rounded-2xl bg-white border border-stone-200 p-6 space-y-4">
         <h2 className="font-semibold">Homepage hero banners</h2>
-        <p className="text-xs text-stone-500">One banner per line — format: <code>Title | Subtitle | Button text | Link</code></p>
+        <p className="text-xs text-stone-500">One banner per line — format: <code>Title | Subtitle | Button text | Link | Image URL</code> (image optional)</p>
         <textarea
           className={`${input} font-mono text-xs`}
           rows={4}
