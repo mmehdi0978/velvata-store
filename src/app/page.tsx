@@ -150,19 +150,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* TRENDING NOW */}
-      {bestsellers.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 mt-12">
-          <div className="flex items-end justify-between">
-            <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">Trending Now</h2>
-            <Link href="/shop?sort=bestselling" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
-          </div>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {bestsellers.map((p) => <ProductCard key={p.id} product={p} />)}
-          </div>
-        </section>
-      )}
-
       {/* TRUST / FEATURES BAR — white, 4 items with icons */}
       <section className="bg-white border-y border-stone-200 mt-12">
         <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -178,34 +165,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* NEW ARRIVALS */}
-      <section className="max-w-7xl mx-auto px-4 mt-12">
-        <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">New Arrivals</h2>
-          <Link href="/shop?sort=newest" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
-        </div>
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {featured.map((p) => <ProductCard key={p.id} product={p} />)}
-        </div>
-      </section>
-
       {/* MID-SITE PROMO BANNER */}
       <PromoBanner />
-
-      {/* SALE */}
-      {sale.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 mt-12">
-          <div className="flex items-end justify-between">
-            <h2 className="text-xl font-semibold tracking-tight text-stone-950 uppercase">
-              Sale <span className="text-orange-500 text-sm font-medium">— up to 30% off</span>
-            </h2>
-            <Link href="/shop?sale=1" className="text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-stone-950">View all →</Link>
-          </div>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {sale.map((p) => <ProductCard key={p.id} product={p} />)}
-          </div>
-        </section>
-      )}
 
       {/* SEO TEXT BLOCK */}
       <section className="max-w-4xl mx-auto px-4 mt-16 mb-4 text-stone-500 text-sm leading-relaxed">
