@@ -156,8 +156,10 @@ export default function Navbar({
               </svg>
             </button>
             <Link href="/" className="flex items-center gap-2.5 text-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="Q" className="h-9 w-9 object-contain" />
               <span className="truncate leading-none text-center" style={{ fontFamily: LOGO_FONTS[theme.logoFont] || LOGO_FONTS.marcellus, color: theme.logoColor, textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
-                <span className={`block font-bold ${LOGO_SIZES[theme.logoSize] || LOGO_SIZES.medium}`} style={{ letterSpacing: `${theme.logoSpacing}em` }}>{theme.logoText || "QOMASH WEARS"}</span>
+                <span className={`block font-bold ${LOGO_SIZES[theme.logoSize] || LOGO_SIZES.medium}`} style={{ letterSpacing: `${theme.logoSpacing}em` }}>{(theme.logoText || "QOMASH WEARS").slice(1) || "OMASH WEARS"}</span>
               </span>
             </Link>
           </div>
