@@ -159,9 +159,7 @@ export default function Navbar({
               {logoPath ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={logoPath} alt={storeName} className="h-9 w-9 object-contain rounded" />
-              ) : (
-                <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
-              )}
+              ) : null}
               <span className="truncate leading-none text-center" style={{ fontFamily: LOGO_FONTS[theme.logoFont] || LOGO_FONTS.marcellus, color: theme.logoColor, textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
                 <span className={`block font-bold ${LOGO_SIZES[theme.logoSize] || LOGO_SIZES.medium}`} style={{ letterSpacing: `${theme.logoSpacing}em` }}>{theme.logoText || "QOMASH WEARS"}</span>
               </span>
