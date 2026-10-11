@@ -218,7 +218,8 @@ export default function Navbar({
           </div>
         </div>
 
-        {/* Furor-style category tab bar — secondary nav below the header */}
+        {/* Furor-style category tab bar — hidden on homepage, shown on shop/category pages */}
+        {pathname !== "/" && (
         <div className="hidden sm:block border-t border-stone-800 bg-stone-950">
           <div className="max-w-7xl mx-auto px-4">
             <nav className="flex items-center justify-center gap-1 overflow-x-auto">
@@ -238,6 +239,7 @@ export default function Navbar({
             </nav>
           </div>
         </div>
+        )}
       </header>
 
       {/* Mobile drawer menu */}
