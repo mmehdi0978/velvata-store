@@ -41,11 +41,6 @@ function Tile({
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
       />
       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500" />
-      <div className="absolute inset-x-0 bottom-5 sm:bottom-8 flex justify-center px-4">
-        <span className="rounded-full bg-white px-7 sm:px-9 py-2 sm:py-2.5 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.18em] text-stone-900 shadow-xl whitespace-nowrap">
-          {label}
-        </span>
-      </div>
     </Link>
   );
 }
