@@ -141,9 +141,9 @@ export default function Navbar({
               ) : (
                 <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
               )}
-              <span className="truncate leading-none" style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: "#d4af37", textShadow: "0 1px 6px rgba(212,175,55,0.25)" }}>
+              <span className="truncate leading-none text-center" style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: "#d4af37", textShadow: "0 1px 6px rgba(212,175,55,0.25)" }}>
                 <span className="block text-[22px] font-bold" style={{ letterSpacing: "0.18em" }}>QOMASH</span>
-                <span className="block text-[11px] font-normal" style={{ letterSpacing: "0.5em" }}>WEARS</span>
+                <span className="block text-[11px] font-normal mx-auto" style={{ letterSpacing: "0.5em", textIndent: "0.5em" }}>WEARS</span>
               </span>
             </Link>
           </div>
