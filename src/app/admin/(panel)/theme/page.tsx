@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 const FONTS: { key: string; label: string; css: string }[] = [
   { key: "marcellus", label: "Marcellus (Luxury)", css: "var(--font-luxury), Georgia, serif" },
   { key: "cinzel", label: "Cinzel Decorative (Royal)", css: "var(--font-logo), Georgia, serif" },
+  { key: "playfair", label: "Playfair Display (Elegant)", css: "var(--font-playfair), Georgia, serif" },
+  { key: "cormorant", label: "Cormorant Garamond (Refined)", css: "var(--font-cormorant), Georgia, serif" },
+  { key: "bebas", label: "Bebas Neue (Tall)", css: "var(--font-bebas), Arial, sans-serif" },
+  { key: "anton", label: "Anton (Power Bold)", css: "var(--font-anton), Arial, sans-serif" },
+  { key: "oswald", label: "Oswald (Modern)", css: "var(--font-oswald), Arial, sans-serif" },
+  { key: "montserrat", label: "Montserrat (Clean)", css: "var(--font-montserrat), Arial, sans-serif" },
   { key: "georgia", label: "Georgia Serif (Classic)", css: "Georgia, 'Times New Roman', serif" },
   { key: "arialblack", label: "Arial Black (Bold)", css: "'Arial Black', Arial, sans-serif" },
   { key: "impact", label: "Impact (Heavy)", css: "Impact, Arial, sans-serif" },

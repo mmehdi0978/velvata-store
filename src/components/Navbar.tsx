@@ -67,6 +67,12 @@ export type ThemeProps = {
 const LOGO_FONTS: Record<string, string> = {
   marcellus: "var(--font-luxury), Georgia, serif",
   cinzel: "var(--font-logo), Georgia, serif",
+  playfair: "var(--font-playfair), Georgia, serif",
+  cormorant: "var(--font-cormorant), Georgia, serif",
+  bebas: "var(--font-bebas), Arial, sans-serif",
+  anton: "var(--font-anton), Arial, sans-serif",
+  oswald: "var(--font-oswald), Arial, sans-serif",
+  montserrat: "var(--font-montserrat), Arial, sans-serif",
   georgia: "Georgia, 'Times New Roman', serif",
   arialblack: "'Arial Black', Arial, sans-serif",
   impact: "Impact, Arial, sans-serif",

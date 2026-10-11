@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Marcellus } from "next/font/google";
+import { Cinzel_Decorative, Marcellus, Playfair_Display, Cormorant_Garamond, Bebas_Neue, Anton, Oswald, Montserrat } from "next/font/google";
 import { CartProvider } from "@/components/CartProvider";
 import { WishlistProvider } from "@/components/WishlistProvider";
 import Navbar from "@/components/Navbar";
@@ -25,6 +25,42 @@ const marcellus = Marcellus({
   variable: "--font-luxury",
 });
 
+const playfair = Playfair_Display({
+  weight: ["700", "900"],
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const cormorant = Cormorant_Garamond({
+  weight: ["600", "700"],
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+});
+
+const bebas = Bebas_Neue({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-bebas",
+});
+
+const anton = Anton({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-anton",
+});
+
+const oswald = Oswald({
+  weight: ["600", "700"],
+  subsets: ["latin"],
+  variable: "--font-oswald",
+});
+
+const montserrat = Montserrat({
+  weight: ["700", "800"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 export async function generateMetadata(): Promise<Metadata> {
   const s = await getPublicSettingsSafe();
   return {
@@ -41,7 +77,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const s = await getPublicSettingsSafe();
   return (
     <html lang="en">
-      <body className={`${cinzelDecorative.variable} ${marcellus.variable}`}>
+      <body className={`${cinzelDecorative.variable} ${marcellus.variable} ${playfair.variable} ${cormorant.variable} ${bebas.variable} ${anton.variable} ${oswald.variable} ${montserrat.variable}`}>
         <CartProvider>
           <WishlistProvider>
             <Navbar
