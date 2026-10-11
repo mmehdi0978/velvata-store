@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 import { useWishlist } from "./WishlistProvider";
@@ -54,6 +55,16 @@ const NAV: { href: string; label: string; hot?: boolean; isNew?: boolean; dropdo
   },
 ];
 
+// Furor-style category tab bar (secondary nav directly below the header)
+const TABS = [
+  { key: "all", label: "All", href: "/shop" },
+  { key: "men", label: "Men", href: "/shop?category=men" },
+  { key: "women", label: "Women", href: "/shop?category=women" },
+  { key: "footwear", label: "Footwear", href: "/shop?category=footwear" },
+  { key: "winter", label: "Winter Collection", href: "/shop?category=winter" },
+  { key: "accessories", label: "Accessories", href: "/shop?category=accessories" },
+];
+
 export default function Navbar({
   storeName,
   logoPath,
@@ -69,6 +80,12 @@ export default function Navbar({
   const { count: wishCount } = useWishlist();
   const [menuOpen, setMenuOpen] = useState(false);
   const [customerName, setCustomerName] = useState<string | null>(null);
+
+  // Active tab for the Furor-style category tab bar
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const activeTab =
+    pathname === "/shop" ? searchParams.get("category") || "all" : "";
 
   useEffect(() => {
     fetch("/api/customer/me")
@@ -124,7 +141,7 @@ export default function Navbar({
               ) : (
                 <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
               )}
-              <span className="truncate text-2xl font-black uppercase tracking-tight" style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Arial, sans-serif", letterSpacing: "0.02em" }}>{storeName}</span>
+              <span className="truncate text-2xl font-bold" style={{ fontFamily: "Georgia, 'Times New Roman', serif", letterSpacing: "0.04em", color: "#d4af37", textShadow: "0 1px 6px rgba(212,175,55,0.25)" }}>{storeName}</span>
             </Link>
           </div>
 
@@ -196,6 +213,27 @@ export default function Navbar({
                 </span>
               )}
             </button>
+          </div>
+        </div>
+
+        {/* Furor-style category tab bar — secondary nav below the header */}
+        <div className="hidden sm:block border-t border-stone-800 bg-stone-950">
+          <div className="max-w-7xl mx-auto px-4">
+            <nav className="flex items-center justify-center gap-1 overflow-x-auto">
+              {TABS.map((t) => (
+                <Link
+                  key={t.key}
+                  href={t.href}
+                  className={`px-5 py-2.5 text-[12px] font-semibold uppercase tracking-wider whitespace-nowrap border-b-2 transition-colors ${
+                    activeTab === t.key
+                      ? "text-orange-500 border-orange-500"
+                      : "text-stone-300 border-transparent hover:text-white hover:border-stone-600"
+                  }`}
+                >
+                  {t.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </header>
