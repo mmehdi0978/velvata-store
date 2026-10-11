@@ -13,11 +13,11 @@ const TILES = {
   newArrivals: `${IMG}/v1791730728/qomash-products/qomash-couple-hoodie-casual.webp`,
   women: `${IMG}/v1791730725/qomash-products/qomash-women-hoodie-casual.webp`,
   men: `${IMG}/v1791730726/qomash-products/qomash-men-hoodie-casual.webp`,
-  winter: `${IMG}/v1791667924/qomash-products/qomash-couple-tile-v4.webp`,
-  footwear: `${IMG}/v1791667925/qomash-products/qomash-festive-banner-v4.webp`,
-  accessories: `${IMG}/v1791667921/qomash-products/qomash-women-tile-v4.webp`,
-  sale: `${IMG}/v1791668008/qomash-products/qomash-hero-1-women.webp`,
-  new: `${IMG}/v1791667922/qomash-products/qomash-men-tile-v4.webp`,
+  winter: `${IMG}/v1791731132/qomash-products/qomash-women-street-hoodie.webp`,
+  footwear: `${IMG}/v1791731133/qomash-products/qomash-men-urban-hoodie.webp`,
+  accessories: `${IMG}/v1791731134/qomash-products/qomash-women-denim-hoodie.webp`,
+  sale: `${IMG}/v1791730728/qomash-products/qomash-couple-hoodie-casual.webp`,
+  new: `${IMG}/v1791730725/qomash-products/qomash-women-hoodie-casual.webp`,
 };
 
 function Tile({
