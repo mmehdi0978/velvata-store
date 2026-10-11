@@ -121,9 +121,10 @@ export default async function HomePage() {
   return (
     <div>
       {/* HERO CAROUSEL — full-bleed, tall */}
-      <HeroCarousel slides={slides} />
+      {s.show_hero && <HeroCarousel slides={slides} height={s.hero_height} />}
 
       {/* CATEGORY TILE GRID — edge-to-edge, no gaps (Furor pattern) */}
+      {s.show_tiles && (
       <section aria-label="Shop by category">
         {/* Row 1: full-width — NEW ARRIVALS */}
         <Tile
@@ -142,15 +143,16 @@ export default async function HomePage() {
           <Tile href="/shop?category=winter" label="Winter Collection" img={TILES.winter} className="aspect-[3/4] sm:aspect-[4/5]" />
           <Tile href="/shop?category=footwear" label="Footwear" img={TILES.footwear} className="aspect-[3/4] sm:aspect-[4/5]" />
         </div>
-        {/* Row 4: 3-column — ACCESSORIES / SALE / NEW */}
-        <div className="grid grid-cols-3">
-          <Tile href="/shop?category=accessories" label="Accessories" img={TILES.accessories} className="aspect-[3/4]" />
+        {/* Row 4: 2-column — SALE / NEW */}
+        <div className="grid grid-cols-2">
           <Tile href="/shop?sale=1" label="Sale" img={TILES.sale} className="aspect-[3/4]" />
           <Tile href="/shop?sort=newest" label="New" img={TILES.new} className="aspect-[3/4]" />
         </div>
       </section>
+      )}
 
       {/* TRUST / FEATURES BAR — white, 4 items with icons */}
+      {s.show_trust && (
       <section className="bg-white border-y border-stone-200 mt-12">
         <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {TRUST_ITEMS.map((t) => (
@@ -164,11 +166,13 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+      )}
 
       {/* MID-SITE PROMO BANNER */}
-      <PromoBanner />
+      {s.show_promo && <PromoBanner />}
 
       {/* SEO TEXT BLOCK */}
+      {s.show_seo && (
       <section className="max-w-4xl mx-auto px-4 mt-16 mb-4 text-stone-500 text-sm leading-relaxed">
         <h2 className="text-lg font-semibold text-stone-900 mb-3">Women&apos;s Fashion Online in Pakistan</h2>
         <p>
@@ -189,6 +193,7 @@ export default async function HomePage() {
           pashmina and wool shawls.
         </p>
       </section>
+      )}
 
       {/* BRAND STRIP */}
       <section className="mt-12 bg-black text-white">

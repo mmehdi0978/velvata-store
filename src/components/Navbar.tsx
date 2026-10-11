@@ -44,15 +44,6 @@ const NAV: { href: string; label: string; hot?: boolean; isNew?: boolean; dropdo
       { href: "/shop?category=footwear", label: "All Footwear" },
     ],
   },
-  {
-    href: "/shop?category=accessories", label: "Accessories",
-    dropdown: [
-      { href: "/shop?category=accessories", label: "All Accessories" },
-      { href: "/shop?category=accessories&search=bag", label: "Bags" },
-      { href: "/shop?category=accessories&search=earring", label: "Jewelry" },
-      { href: "/shop?category=accessories&search=scarf", label: "Scarves" },
-    ],
-  },
 ];
 
 // Furor-style category tab bar (secondary nav directly below the header)
@@ -62,19 +53,43 @@ const TABS = [
   { key: "women", label: "Women", href: "/shop?category=women" },
   { key: "footwear", label: "Footwear", href: "/shop?category=footwear" },
   { key: "winter", label: "Winter Collection", href: "/shop?category=winter" },
-  { key: "accessories", label: "Accessories", href: "/shop?category=accessories" },
 ];
+
+export type ThemeProps = {
+  logoText: string;
+  logoColor: string;
+  logoFont: string;
+  logoSize: string;
+  logoSpacing: string;
+  headerBg: string;
+};
+
+const LOGO_FONTS: Record<string, string> = {
+  marcellus: "var(--font-luxury), Georgia, serif",
+  cinzel: "var(--font-logo), Georgia, serif",
+  georgia: "Georgia, 'Times New Roman', serif",
+  arialblack: "'Arial Black', Arial, sans-serif",
+  impact: "Impact, Arial, sans-serif",
+};
+
+const LOGO_SIZES: Record<string, string> = {
+  small: "text-[18px]",
+  medium: "text-[24px]",
+  large: "text-[30px]",
+};
 
 export default function Navbar({
   storeName,
   logoPath,
   announcement,
   phone,
+  theme,
 }: {
   storeName: string;
   logoPath: string;
   announcement: string;
   phone: string;
+  theme: ThemeProps;
 }) {
   const { count, setDrawerOpen } = useCart();
   const { count: wishCount } = useWishlist();
@@ -122,7 +137,7 @@ export default function Navbar({
       </div>
       <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
 
-      <header className="sticky top-0 z-40 bg-black">
+      <header className="sticky top-0 z-40" style={{ background: theme.headerBg }}>
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <button
@@ -141,8 +156,8 @@ export default function Navbar({
               ) : (
                 <span className="h-9 w-9 grid place-items-center rounded-full bg-white text-black text-lg font-bold">Q</span>
               )}
-              <span className="truncate leading-none text-center" style={{ fontFamily: "var(--font-luxury), Georgia, serif", color: "#d4af37", textShadow: "0 1px 6px rgba(212,175,55,0.25)" }}>
-                <span className="block text-[24px] font-bold" style={{ letterSpacing: "0.01em" }}>QOMASH WEARS</span>
+              <span className="truncate leading-none text-center" style={{ fontFamily: LOGO_FONTS[theme.logoFont] || LOGO_FONTS.marcellus, color: theme.logoColor, textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
+                <span className={`block font-bold ${LOGO_SIZES[theme.logoSize] || LOGO_SIZES.medium}`} style={{ letterSpacing: `${theme.logoSpacing}em` }}>{theme.logoText || "QOMASH WEARS"}</span>
               </span>
             </Link>
           </div>
@@ -220,7 +235,7 @@ export default function Navbar({
 
         {/* Furor-style category tab bar — hidden on homepage, shown on shop/category pages */}
         {pathname !== "/" && (
-        <div className="hidden sm:block border-t border-stone-800 bg-stone-950">
+        <div className="hidden sm:block border-t border-white/10" style={{ background: theme.headerBg }}>
           <div className="max-w-7xl mx-auto px-4">
             <nav className="flex items-center justify-center gap-1 overflow-x-auto">
               {TABS.map((t) => (
