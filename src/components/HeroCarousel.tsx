@@ -30,7 +30,7 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
     <section className="relative overflow-hidden text-white" style={{ background: `linear-gradient(120deg, ${s.bg1}, ${s.bg2})` }}>
       {s.image ? (
         <>
-          <img src={s.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={s.image} alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(100deg, rgba(20,8,14,0.72) 20%, rgba(20,8,14,0.35) 55%, rgba(20,8,14,0.15) 100%)" }} />
         </>
       ) : (
