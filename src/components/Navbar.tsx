@@ -155,7 +155,7 @@ export default function Navbar({
                 <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
               </svg>
             </button>
-            <Link href="/" className="flex items-center gap-2.5 text-white">
+            <Link href="/" className="flex items-center gap-0 text-white">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" alt="Q" className="h-9 w-9 object-contain" />
               <span className="truncate leading-none text-center" style={{ fontFamily: LOGO_FONTS[theme.logoFont] || LOGO_FONTS.marcellus, color: theme.logoColor, textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}>
