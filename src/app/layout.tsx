@@ -10,7 +10,6 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 import MobileBridge from "@/components/MobileBridge";
 import { getPublicSettingsSafe } from "@/lib/settings";
-import { headers } from "next/headers";
 import "./globals.css";
 
 // Canonical base for the live storefront. Override with the SITE_URL env var;
@@ -178,12 +177,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const s = await getPublicSettingsSafe();
-  // Per-path canonical rendered server-side (x-pathname set by middleware.ts).
-  // CanonicalTag keeps it correct on client-side navigations, where the root
-  // layout is not re-rendered.
-  const hdrs = await headers();
-  const pathname = hdrs.get("x-pathname") || "/";
-  const canonical = SITE_BASE + pathname;
   const orgLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -213,9 +206,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   };
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href={canonical} />
-      </head>
       <body className={`${cinzelDecorative.variable} ${marcellus.variable} ${playfair.variable} ${cormorant.variable} ${bebas.variable} ${anton.variable} ${oswald.variable} ${montserrat.variable} ${bodoni.variable} ${italiana.variable} ${cinzelReg.variable} ${abril.variable} ${raleway.variable} ${poppins.variable} ${dmserif.variable} ${libre.variable} ${josefin.variable} ${archivo.variable} ${alfa.variable} ${lato.variable}`}>
         <script
           type="application/ld+json"

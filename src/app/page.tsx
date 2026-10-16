@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import PromoBanner from "@/components/PromoBanner";
 import { getPublicSettingsSafe } from "@/lib/settings";
 
 export const dynamic = "force-dynamic";
+
+// Page-scoped canonical: only this page gets it (a layout-level canonical
+// would be inherited by every route, which is wrong for /shop, /faq, ...).
+export const metadata: Metadata = {
+  alternates: { canonical: "https://www.qomashwears.store/" },
+};
 
 const IMG = "https://res.cloudinary.com/wckxcqye/image/upload";
 
