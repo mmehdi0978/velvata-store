@@ -6,6 +6,8 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Journal — Qomash Wears",
   description: "Style guides, fabric explainers and care tips for Pakistani women's fashion.",
+  alternates: { canonical: "https://www.qomashwears.store/blog" },
+
 };
 
 interface PostSummary {

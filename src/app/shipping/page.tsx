@@ -1,5 +1,10 @@
 import PolicyLayout from "@/components/PolicyLayout";
 
+export const metadata = {
+  alternates: { canonical: "https://www.qomashwears.store/shipping" },
+};
+
+
 export const dynamic = "force-dynamic";
 
 export default function ShippingPage() {

@@ -5,6 +5,8 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "About Us — Qomash Wears",
   description: "Qomash Wears is a Pakistani women's fashion brand bringing premium unstitched fabric, ready-to-wear suits and shawls to your doorstep.",
+  alternates: { canonical: "https://www.qomashwears.store/about" },
+
 };
 
 export default function AboutPage() {

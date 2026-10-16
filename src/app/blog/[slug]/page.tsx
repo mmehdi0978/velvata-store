@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — Qomash Wears`,
     description: post.metaDescription || post.excerpt || post.title,
+    alternates: { canonical: `https://www.qomashwears.store/blog/${slug}` },
   };
 }
 

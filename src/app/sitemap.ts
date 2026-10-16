@@ -7,11 +7,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const urls: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${BASE}/shop`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE}/shop?category=unstitched`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/shop?category=pret`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/shop?category=shawls`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/shop?sale=1`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/track`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/faq`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.5 },
