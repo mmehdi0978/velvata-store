@@ -5,22 +5,11 @@ import { WishlistProvider } from "@/components/WishlistProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
-import CanonicalTag from "@/components/CanonicalTag";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 import MobileBridge from "@/components/MobileBridge";
 import { getPublicSettingsSafe } from "@/lib/settings";
 import "./globals.css";
-
-// Canonical base for the live storefront. Override with the SITE_URL env var;
-// fallback keeps sitemap/robots/OG/canonicals correct even if it is unset.
-export const SITE_BASE = (process.env.SITE_URL || "https://www.qomashwears.store").replace(/\/$/, "");
-// Crisp entity definition (#45 GEO): one brand + one-line definition reused
-// verbatim in meta, JSON-LD, footer tagline and llms.txt.
-export const ENTITY_DEFINITION =
-  "Qomash Wears is a Pakistani online clothing store for women and men — premium embroidered suits, casual streetwear, winter wear and shawls — with cash on delivery and 14-day easy exchange across Pakistan.";
-export const OG_IMAGE =
-  "https://res.cloudinary.com/wckxcqye/image/upload/v1791730728/qomash-products/qomash-couple-hoodie-casual.webp";
 
 export const dynamic = "force-dynamic";
 
@@ -144,30 +133,45 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
+const SITE_URL = (process.env.SITE_URL || "https://www.qomashwears.store").replace(/\/$/, "");
+
 export async function generateMetadata(): Promise<Metadata> {
   const s = await getPublicSettingsSafe();
-  const title = `${s.store_name} — Premium Women's Fashion Pakistan`;
-  const description = `${s.store_name}: premium women's & men's fashion online in Pakistan — embroidered suits, casual streetwear, winter wear & shawls. Cash on delivery, 14-day exchange.`;
+  const title = `${s.store_name} | Online Clothing Store in Pakistan — Cash on Delivery`;
+  const description =
+    s.store_tagline ||
+    "Shop premium women's fashion online in Pakistan — embroidered suits, pret, streetwear & winter shawls. Cash on Delivery, JazzCash & Easypaisa. Free shipping on orders above Rs 3,000.";
   return {
-    metadataBase: new URL(SITE_BASE),
-    title,
+    metadataBase: new URL(SITE_URL),
+    title: { default: title, template: `%s | ${s.store_name}` },
     description,
-    robots: { index: true, follow: true },
+    keywords: [
+      "Qomash Wears",
+      "online clothing store Pakistan",
+      "women's fashion Pakistan",
+      "buy clothes online Pakistan COD",
+      "pakistani suits online",
+      "pret wear Pakistan",
+      "winter shawls Pakistan",
+      "cash on delivery clothing Pakistan",
+    ],
+    authors: [{ name: s.store_name }],
     openGraph: {
       type: "website",
+      url: SITE_URL,
       siteName: s.store_name,
-      locale: "en_PK",
-      url: SITE_BASE + "/",
       title,
-      description: s.store_tagline || description,
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: s.store_name }],
+      description,
+      images: [{ url: "/banner-shop.jpg", width: 1200, height: 630, alt: s.store_name }],
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: s.store_tagline || description,
-      images: [OG_IMAGE],
+      description,
+      images: ["/banner-shop.jpg"],
     },
+    alternates: { canonical: SITE_URL },
+    robots: { index: true, follow: true },
     icons: {
       icon: "/favicon.ico",
       apple: "/apple-touch-icon.png",
@@ -177,41 +181,38 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const s = await getPublicSettingsSafe();
-  const orgLd = {
+  const sameAs = [s.facebook_url, s.instagram_url].filter(Boolean);
+  const orgJsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": SITE_BASE + "/#organization",
-        name: s.store_name,
-        url: SITE_BASE + "/",
-        logo: SITE_BASE + "/logo.png",
-        description: ENTITY_DEFINITION,
-      },
-      {
-        "@type": "WebSite",
-        "@id": SITE_BASE + "/#website",
-        url: SITE_BASE + "/",
-        name: s.store_name,
-        publisher: { "@id": SITE_BASE + "/#organization" },
-        description: ENTITY_DEFINITION,
-        inLanguage: "en",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: { "@type": "EntryPoint", urlTemplate: SITE_BASE + "/shop?search={search_term_string}" },
-          "query-input": "required name=search_term_string",
-        },
-      },
-    ],
+    "@type": "Organization",
+    name: s.store_name,
+    url: SITE_URL,
+    logo: `${SITE_URL}${s.logo_path || "/logo.png"}`,
+    ...(sameAs.length ? { sameAs } : {}),
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: s.support_phone || undefined,
+      contactType: "customer service",
+      areaServed: "PK",
+      availableLanguage: ["en", "ur"],
+    },
+  };
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: s.store_name,
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/shop?search={search_term_string}` },
+      "query-input": "required name=search_term_string",
+    },
   };
   return (
     <html lang="en">
       <body className={`${cinzelDecorative.variable} ${marcellus.variable} ${playfair.variable} ${cormorant.variable} ${bebas.variable} ${anton.variable} ${oswald.variable} ${montserrat.variable} ${bodoni.variable} ${italiana.variable} ${cinzelReg.variable} ${abril.variable} ${raleway.variable} ${poppins.variable} ${dmserif.variable} ${libre.variable} ${josefin.variable} ${archivo.variable} ${alfa.variable} ${lato.variable}`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
-        />
-        <CanonicalTag base={SITE_BASE} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         <CartProvider>
           <WishlistProvider>
             <Navbar
@@ -236,6 +237,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <MobileBridge />
           </WishlistProvider>
         </CartProvider>
+        {/* 100% privacy-first analytics */}
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </body>
     </html>
   );
