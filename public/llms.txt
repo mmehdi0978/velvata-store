@@ -1,0 +1,29 @@
+# Qomash Wears
+
+Qomash Wears is a Pakistani online clothing store for women and men — premium embroidered suits, casual streetwear, winter wear and shawls — with cash on delivery and 14-day easy exchange across Pakistan.
+
+## Shop
+- Home: https://www.qomashwears.store/
+- Shop all products: https://www.qomashwears.store/shop
+- New arrivals: https://www.qomashwears.store/shop?sort=newest
+- Sale: https://www.qomashwears.store/shop?sale=1
+- Women: https://www.qomashwears.store/shop?category=women
+- Men: https://www.qomashwears.store/shop?category=men
+- Winter collection: https://www.qomashwears.store/shop?category=winter
+- Footwear: https://www.qomashwears.store/shop?category=footwear
+- Accessories: https://www.qomashwears.store/shop?category=accessories
+
+## Help & policies
+- FAQ: https://www.qomashwears.store/faq
+- Track your order: https://www.qomashwears.store/track
+- Contact us: https://www.qomashwears.store/contact
+- Shipping info: https://www.qomashwears.store/shipping
+- Exchange & returns: https://www.qomashwears.store/exchange-return
+- About: https://www.qomashwears.store/about
+
+## Company
+- Payments: cash on delivery (COD), JazzCash, Easypaisa
+- Shipping: flat Rs 250, free on orders above Rs 3,000; delivery 3–5 working days nationwide
+- Exchanges: 14-day easy exchange on unused items
+- Support: Mon–Sat, 9am–6pm; WhatsApp ordering available
+- Blog: https://www.qomashwears.store/blog

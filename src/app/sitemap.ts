@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getDb } from "@/lib/db";
 
-const BASE = process.env.SITE_URL || "https://velvata.pk";
+const BASE = (process.env.SITE_URL || "https://www.qomashwears.store").replace(/\/$/, "");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const urls: MetadataRoute.Sitemap = [
@@ -12,6 +12,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/shop?category=shawls`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/shop?sale=1`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/track`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/faq`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/shipping`, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/exchange-return`, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/privacy`, changeFrequency: "monthly", priority: 0.3 },
