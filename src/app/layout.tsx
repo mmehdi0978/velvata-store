@@ -239,6 +239,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </CartProvider>
         {/* 100% privacy-first analytics */}
         <script async src="https://scripts.simpleanalyticscdn.com/latest.js" />
+        {/* Google Analytics (GA4) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBWQ9WSZ4Z" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JBWQ9WSZ4Z');`,
+          }}
+        />
       </body>
     </html>
   );
